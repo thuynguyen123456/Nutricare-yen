@@ -1,0 +1,6 @@
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_220122\LedControl\obj\Debug\LedControl.csproj.AssemblyReference.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_220122\LedControl\obj\Debug\LedControl.csproj.CoreCompileInputs.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_220122\LedControl\bin\Debug\LedControl.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_220122\LedControl\bin\Debug\LedControl.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_220122\LedControl\obj\Debug\LedControl.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_220122\LedControl\obj\Debug\LedControl.pdb

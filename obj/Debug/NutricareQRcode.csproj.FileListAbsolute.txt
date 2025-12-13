@@ -1,0 +1,467 @@
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode\bin\Debug\NutricareQRcode.exe.config
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode\bin\Debug\NutricareQRcode.exe
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode\bin\Debug\NutricareQRcode.pdb
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode\obj\Debug\NutricareQRcode.Form1.resources
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode\obj\Debug\NutricareQRcode.Properties.Resources.resources
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode\obj\Debug\NutricareQRcode.exe
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode\obj\Debug\NutricareQRcode.pdb
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode_2\bin\Debug\NutricareQRcode.exe.config
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode_2\bin\Debug\NutricareQRcode.exe
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode_2\bin\Debug\NutricareQRcode.pdb
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode_2\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode_2\obj\Debug\NutricareQRcode.Form1.resources
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode_2\obj\Debug\NutricareQRcode.Properties.Resources.resources
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode_2\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode_2\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode_2\obj\Debug\NutricareQRcode.exe
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode_2\obj\Debug\NutricareQRcode.pdb
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode_3\bin\Debug\NutricareQRcode.exe.config
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode_3\bin\Debug\NutricareQRcode.exe
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode_3\bin\Debug\NutricareQRcode.pdb
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode_3\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode_3\obj\Debug\NutricareQRcode.Form1.resources
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode_3\obj\Debug\NutricareQRcode.Properties.Resources.resources
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode_3\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode_3\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode_3\obj\Debug\NutricareQRcode.exe
+C:\Users\sherl\Desktop\May in camera barcode\NutricareQRcode_3\obj\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_131221\bin\Debug\NutricareQRcode.exe.config
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_131221\bin\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_131221\bin\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_131221\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_131221\obj\Debug\NutricareQRcode.Form1.resources
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_131221\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_131221\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_131221\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_131221\obj\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_131221\obj\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_151221\bin\Debug\NutricareQRcode.exe.config
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_151221\bin\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_151221\bin\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_151221\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_151221\obj\Debug\NutricareQRcode.Form1.resources
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_151221\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_151221\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_151221\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_151221\obj\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_151221\obj\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_171221\bin\Debug\NutricareQRcode.exe.config
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_171221\bin\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_171221\bin\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_171221\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_171221\obj\Debug\NutricareQRcode.Form1.resources
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_171221\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_171221\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_171221\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_171221\obj\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_171221\obj\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_181221\bin\Debug\NutricareQRcode.exe.config
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_181221\bin\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_181221\bin\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_181221\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_181221\obj\Debug\NutricareQRcode.Form1.resources
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_181221\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_181221\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_181221\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_181221\obj\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_181221\obj\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_191221\bin\Debug\NutricareQRcode.exe.config
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_191221\bin\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_191221\bin\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_191221\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_191221\obj\Debug\NutricareQRcode.Form1.resources
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_191221\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_191221\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_191221\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_191221\obj\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Program\NutricareQRcode_191221\obj\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_291221\bin\Debug\NutricareQRcode.exe.config
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_291221\bin\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_291221\bin\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_291221\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_291221\obj\Debug\NutricareQRcode.Form1.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_291221\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_291221\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_291221\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_291221\obj\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_291221\obj\Debug\NutricareQRcode.pdb
+D:\Program\NutricareQRcode_070122\bin\Debug\NutricareQRcode.exe.config
+D:\Program\NutricareQRcode_070122\bin\Debug\NutricareQRcode.exe
+D:\Program\NutricareQRcode_070122\bin\Debug\NutricareQRcode.pdb
+D:\Program\NutricareQRcode_070122\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\Program\NutricareQRcode_070122\obj\Debug\NutricareQRcode.Form1.resources
+D:\Program\NutricareQRcode_070122\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\Program\NutricareQRcode_070122\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\Program\NutricareQRcode_070122\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\Program\NutricareQRcode_070122\obj\Debug\NutricareQRcode.exe
+D:\Program\NutricareQRcode_070122\obj\Debug\NutricareQRcode.pdb
+D:\Program\NutricareQRcode_160122\bin\Debug\NutricareQRcode.exe.config
+D:\Program\NutricareQRcode_160122\bin\Debug\NutricareQRcode.exe
+D:\Program\NutricareQRcode_160122\bin\Debug\NutricareQRcode.pdb
+D:\Program\NutricareQRcode_160122\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\Program\NutricareQRcode_160122\obj\Debug\NutricareQRcode.Form1.resources
+D:\Program\NutricareQRcode_160122\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\Program\NutricareQRcode_160122\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\Program\NutricareQRcode_160122\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\Program\NutricareQRcode_160122\obj\Debug\NutricareQRcode.exe
+D:\Program\NutricareQRcode_160122\obj\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_170122\bin\Debug\NutricareQRcode.exe.config
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_170122\bin\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_170122\bin\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_170122\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_170122\obj\Debug\NutricareQRcode.Form1.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_170122\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_170122\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_170122\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_170122\obj\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_170122\obj\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_180122\bin\Debug\NutricareQRcode.exe.config
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_180122\bin\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_180122\bin\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_180122\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_180122\obj\Debug\NutricareQRcode.Form1.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_180122\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_180122\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_180122\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_180122\obj\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_180122\obj\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_200122\bin\Debug\NutricareQRcode.exe.config
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_200122\bin\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_200122\bin\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_200122\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_200122\obj\Debug\NutricareQRcode.Form1.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_200122\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_200122\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_200122\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_200122\obj\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_200122\obj\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_210122\bin\Debug\NutricareQRcode.exe.config
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_210122\bin\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_210122\bin\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_210122\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_210122\obj\Debug\NutricareQRcode.Form1.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_210122\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_210122\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_210122\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_210122\obj\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_210122\obj\Debug\NutricareQRcode.pdb
+D:\Program\NutricareQRcode_210122\bin\Debug\NutricareQRcode.exe.config
+D:\Program\NutricareQRcode_210122\bin\Debug\NutricareQRcode.exe
+D:\Program\NutricareQRcode_210122\bin\Debug\NutricareQRcode.pdb
+D:\Program\NutricareQRcode_210122\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\Program\NutricareQRcode_210122\obj\Debug\NutricareQRcode.Form1.resources
+D:\Program\NutricareQRcode_210122\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\Program\NutricareQRcode_210122\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\Program\NutricareQRcode_210122\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\Program\NutricareQRcode_210122\obj\Debug\NutricareQRcode.exe
+D:\Program\NutricareQRcode_210122\obj\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_220122\bin\Debug\NutricareQRcode.exe.config
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_220122\bin\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_220122\bin\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_220122\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_220122\obj\Debug\NutricareQRcode.Form1.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_220122\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_220122\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_220122\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_220122\obj\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_220122\obj\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_150222\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_150222\obj\Debug\NutricareQRcode.Form1.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_150222\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_150222\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_150222\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_150222\obj\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_150222\obj\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_150222\bin\Debug\NutricareQRcode.exe.config
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_150222\bin\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_150222\bin\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_160222\bin\Debug\NutricareQRcode.exe.config
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_160222\bin\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_160222\bin\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_160222\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_160222\obj\Debug\NutricareQRcode.Form1.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_160222\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_160222\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_160222\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_160222\obj\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_160222\obj\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_280222\bin\Debug\NutricareQRcode.exe.config
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_280222\bin\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_280222\bin\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_280222\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_280222\obj\Debug\NutricareQRcode.Form1.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_280222\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_280222\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_280222\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_280222\obj\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\NutricareQRcode_280222\obj\Debug\NutricareQRcode.pdb
+C:\Users\Admin\Desktop\NutricareQRcode_280222\NutricareQRcode_280222\bin\Debug\NutricareQRcode.exe.config
+C:\Users\Admin\Desktop\NutricareQRcode_280222\NutricareQRcode_280222\bin\Debug\NutricareQRcode.exe
+C:\Users\Admin\Desktop\NutricareQRcode_280222\NutricareQRcode_280222\bin\Debug\NutricareQRcode.pdb
+C:\Users\Admin\Desktop\NutricareQRcode_280222\NutricareQRcode_280222\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\NutricareQRcode_280222\NutricareQRcode_280222\obj\Debug\NutricareQRcode.Form1.resources
+C:\Users\Admin\Desktop\NutricareQRcode_280222\NutricareQRcode_280222\obj\Debug\NutricareQRcode.Properties.Resources.resources
+C:\Users\Admin\Desktop\NutricareQRcode_280222\NutricareQRcode_280222\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\NutricareQRcode_280222\NutricareQRcode_280222\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\NutricareQRcode_280222\NutricareQRcode_280222\obj\Debug\NutricareQRcode.exe
+C:\Users\Admin\Desktop\NutricareQRcode_280222\NutricareQRcode_280222\obj\Debug\NutricareQRcode.pdb
+C:\Users\sherl\Desktop\NutricareQRcode_280222\NutricareQRcode_280222\NutricareQRcode_280222\bin\Debug\NutricareQRcode.exe.config
+C:\Users\sherl\Desktop\NutricareQRcode_280222\NutricareQRcode_280222\NutricareQRcode_280222\bin\Debug\NutricareQRcode.exe
+C:\Users\sherl\Desktop\NutricareQRcode_280222\NutricareQRcode_280222\NutricareQRcode_280222\bin\Debug\NutricareQRcode.pdb
+C:\Users\sherl\Desktop\NutricareQRcode_280222\NutricareQRcode_280222\NutricareQRcode_280222\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+C:\Users\sherl\Desktop\NutricareQRcode_280222\NutricareQRcode_280222\NutricareQRcode_280222\obj\Debug\NutricareQRcode.Form1.resources
+C:\Users\sherl\Desktop\NutricareQRcode_280222\NutricareQRcode_280222\NutricareQRcode_280222\obj\Debug\NutricareQRcode.Properties.Resources.resources
+C:\Users\sherl\Desktop\NutricareQRcode_280222\NutricareQRcode_280222\NutricareQRcode_280222\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+C:\Users\sherl\Desktop\NutricareQRcode_280222\NutricareQRcode_280222\NutricareQRcode_280222\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+C:\Users\sherl\Desktop\NutricareQRcode_280222\NutricareQRcode_280222\NutricareQRcode_280222\obj\Debug\NutricareQRcode.exe
+C:\Users\sherl\Desktop\NutricareQRcode_280222\NutricareQRcode_280222\NutricareQRcode_280222\obj\Debug\NutricareQRcode.pdb
+C:\Users\Admin\Desktop\NutricareQRcode_270322\bin\Debug\NutricareQRcode.exe.config
+C:\Users\Admin\Desktop\NutricareQRcode_270322\bin\Debug\NutricareQRcode.exe
+C:\Users\Admin\Desktop\NutricareQRcode_270322\bin\Debug\NutricareQRcode.pdb
+C:\Users\Admin\Desktop\NutricareQRcode_270322\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\NutricareQRcode_270322\obj\Debug\NutricareQRcode.Form1.resources
+C:\Users\Admin\Desktop\NutricareQRcode_270322\obj\Debug\NutricareQRcode.Properties.Resources.resources
+C:\Users\Admin\Desktop\NutricareQRcode_270322\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\NutricareQRcode_270322\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\NutricareQRcode_270322\obj\Debug\NutricareQRcode.exe
+C:\Users\Admin\Desktop\NutricareQRcode_270322\obj\Debug\NutricareQRcode.pdb
+C:\Users\Admin\Desktop\120422\bin\Debug\NutricareQRcode.exe.config
+C:\Users\Admin\Desktop\120422\bin\Debug\NutricareQRcode.exe
+C:\Users\Admin\Desktop\120422\bin\Debug\NutricareQRcode.pdb
+C:\Users\Admin\Desktop\120422\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\120422\obj\Debug\NutricareQRcode.Form1.resources
+C:\Users\Admin\Desktop\120422\obj\Debug\NutricareQRcode.Properties.Resources.resources
+C:\Users\Admin\Desktop\120422\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\120422\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\120422\obj\Debug\NutricareQRcode.exe
+C:\Users\Admin\Desktop\120422\obj\Debug\NutricareQRcode.pdb
+D:\120422\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\120422\obj\Debug\NutricareQRcode.Form1.resources
+D:\120422\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\120422\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\120422\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\120422\obj\Debug\NutricareQRcode.exe
+D:\120422\obj\Debug\NutricareQRcode.pdb
+D:\120422\bin\Debug\NutricareQRcode.exe.config
+D:\120422\bin\Debug\NutricareQRcode.exe
+D:\120422\bin\Debug\NutricareQRcode.pdb
+D:\140422\bin\Debug\NutricareQRcode.exe.config
+D:\140422\bin\Debug\NutricareQRcode.exe
+D:\140422\bin\Debug\NutricareQRcode.pdb
+D:\140422\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\140422\obj\Debug\NutricareQRcode.Form1.resources
+D:\140422\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\140422\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\140422\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\140422\obj\Debug\NutricareQRcode.exe
+D:\140422\obj\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\NutricareQRcode.exe.config
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\DevExpress.Data.v19.2.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\DevExpress.Printing.v19.2.Core.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\DevExpress.Utils.v19.2.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\DevExpress.Pdf.v19.2.Core.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\DevExpress.Data.v19.2.xml
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\DevExpress.Printing.v19.2.Core.xml
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\DevExpress.Utils.v19.2.xml
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\DevExpress.Pdf.v19.2.Core.xml
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\de\DevExpress.Data.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\es\DevExpress.Data.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\ja\DevExpress.Data.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\ru\DevExpress.Data.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\de\DevExpress.Printing.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\es\DevExpress.Printing.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\ja\DevExpress.Printing.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\ru\DevExpress.Printing.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\de\DevExpress.Utils.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\es\DevExpress.Utils.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\ja\DevExpress.Utils.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\ru\DevExpress.Utils.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\de\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\es\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\ja\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\bin\Debug\ru\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\obj\Debug\NutricareQRcode.Form1.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\obj\Debug\NutricareQRcode.csproj.CopyComplete
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\obj\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\140422\140422\obj\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\obj\Debug\NutricareQRcode.Form1.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\obj\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\obj\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\NutricareQRcode.exe.config
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\DevExpress.Data.v19.2.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\DevExpress.Printing.v19.2.Core.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\DevExpress.Utils.v19.2.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\DevExpress.Pdf.v19.2.Core.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\DevExpress.Data.v19.2.xml
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\DevExpress.Printing.v19.2.Core.xml
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\DevExpress.Utils.v19.2.xml
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\DevExpress.Pdf.v19.2.Core.xml
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\de\DevExpress.Data.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\es\DevExpress.Data.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\ja\DevExpress.Data.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\ru\DevExpress.Data.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\de\DevExpress.Printing.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\es\DevExpress.Printing.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\ja\DevExpress.Printing.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\ru\DevExpress.Printing.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\de\DevExpress.Utils.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\es\DevExpress.Utils.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\ja\DevExpress.Utils.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\ru\DevExpress.Utils.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\de\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\es\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\ja\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\bin\Debug\ru\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\170422\270422\obj\Debug\NutricareQRcode.csproj.CopyComplete
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\NutricareQRcode.exe.config
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\DevExpress.Data.v19.2.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\DevExpress.Printing.v19.2.Core.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\DevExpress.Utils.v19.2.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\DevExpress.Pdf.v19.2.Core.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\DevExpress.Data.v19.2.xml
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\DevExpress.Printing.v19.2.Core.xml
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\DevExpress.Utils.v19.2.xml
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\DevExpress.Pdf.v19.2.Core.xml
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\de\DevExpress.Data.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\es\DevExpress.Data.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\ja\DevExpress.Data.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\ru\DevExpress.Data.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\de\DevExpress.Printing.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\es\DevExpress.Printing.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\ja\DevExpress.Printing.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\ru\DevExpress.Printing.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\de\DevExpress.Utils.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\es\DevExpress.Utils.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\ja\DevExpress.Utils.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\ru\DevExpress.Utils.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\de\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\es\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\ja\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\bin\Debug\ru\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\obj\Debug\NutricareQRcode.Form1.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\obj\Debug\NutricareQRcode.csproj.CopyComplete
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\obj\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\270422\obj\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\NutricareQRcode.exe.config
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\DevExpress.Data.v19.2.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\DevExpress.Printing.v19.2.Core.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\DevExpress.Utils.v19.2.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\DevExpress.Pdf.v19.2.Core.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\DevExpress.Data.v19.2.xml
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\DevExpress.Printing.v19.2.Core.xml
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\DevExpress.Utils.v19.2.xml
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\DevExpress.Pdf.v19.2.Core.xml
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\de\DevExpress.Data.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\es\DevExpress.Data.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\ja\DevExpress.Data.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\ru\DevExpress.Data.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\de\DevExpress.Printing.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\es\DevExpress.Printing.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\ja\DevExpress.Printing.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\ru\DevExpress.Printing.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\de\DevExpress.Utils.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\es\DevExpress.Utils.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\ja\DevExpress.Utils.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\ru\DevExpress.Utils.v19.2.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\de\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\es\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\ja\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\bin\Debug\ru\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\obj\Debug\NutricareQRcode.Form1.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\obj\Debug\NutricareQRcode.csproj.CopyComplete
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\obj\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\Phan mem QR code\Program\280422\obj\Debug\NutricareQRcode.pdb
+C:\Users\sherl\Desktop\NM1\bin\Debug\NutricareQRcode.exe.config
+C:\Users\sherl\Desktop\NM1\bin\Debug\NutricareQRcode.exe
+C:\Users\sherl\Desktop\NM1\bin\Debug\NutricareQRcode.pdb
+C:\Users\sherl\Desktop\NM1\bin\Debug\DevExpress.Pdf.v19.2.Core.dll
+C:\Users\sherl\Desktop\NM1\bin\Debug\DevExpress.Data.v19.2.xml
+C:\Users\sherl\Desktop\NM1\bin\Debug\DevExpress.Printing.v19.2.Core.xml
+C:\Users\sherl\Desktop\NM1\bin\Debug\DevExpress.Utils.v19.2.xml
+C:\Users\sherl\Desktop\NM1\bin\Debug\DevExpress.Pdf.v19.2.Core.xml
+C:\Users\sherl\Desktop\NM1\bin\Debug\de\DevExpress.Data.v19.2.resources.dll
+C:\Users\sherl\Desktop\NM1\bin\Debug\es\DevExpress.Data.v19.2.resources.dll
+C:\Users\sherl\Desktop\NM1\bin\Debug\ja\DevExpress.Data.v19.2.resources.dll
+C:\Users\sherl\Desktop\NM1\bin\Debug\ru\DevExpress.Data.v19.2.resources.dll
+C:\Users\sherl\Desktop\NM1\bin\Debug\de\DevExpress.Printing.v19.2.Core.resources.dll
+C:\Users\sherl\Desktop\NM1\bin\Debug\es\DevExpress.Printing.v19.2.Core.resources.dll
+C:\Users\sherl\Desktop\NM1\bin\Debug\ja\DevExpress.Printing.v19.2.Core.resources.dll
+C:\Users\sherl\Desktop\NM1\bin\Debug\ru\DevExpress.Printing.v19.2.Core.resources.dll
+C:\Users\sherl\Desktop\NM1\bin\Debug\de\DevExpress.Utils.v19.2.resources.dll
+C:\Users\sherl\Desktop\NM1\bin\Debug\es\DevExpress.Utils.v19.2.resources.dll
+C:\Users\sherl\Desktop\NM1\bin\Debug\ja\DevExpress.Utils.v19.2.resources.dll
+C:\Users\sherl\Desktop\NM1\bin\Debug\ru\DevExpress.Utils.v19.2.resources.dll
+C:\Users\sherl\Desktop\NM1\bin\Debug\de\DevExpress.Pdf.v19.2.Core.resources.dll
+C:\Users\sherl\Desktop\NM1\bin\Debug\es\DevExpress.Pdf.v19.2.Core.resources.dll
+C:\Users\sherl\Desktop\NM1\bin\Debug\ja\DevExpress.Pdf.v19.2.Core.resources.dll
+C:\Users\sherl\Desktop\NM1\bin\Debug\ru\DevExpress.Pdf.v19.2.Core.resources.dll
+C:\Users\sherl\Desktop\NM1\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+C:\Users\sherl\Desktop\NM1\obj\Debug\NutricareQRcode.Form1.resources
+C:\Users\sherl\Desktop\NM1\obj\Debug\NutricareQRcode.Properties.Resources.resources
+C:\Users\sherl\Desktop\NM1\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+C:\Users\sherl\Desktop\NM1\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+C:\Users\sherl\Desktop\NM1\obj\Debug\NutricareQRcode.csproj.CopyComplete
+C:\Users\sherl\Desktop\NM1\obj\Debug\NutricareQRcode.exe
+C:\Users\sherl\Desktop\NM1\obj\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\NM1\bin\Debug\NutricareQRcode.exe.config
+D:\OneDrive\ThuyProject\NM1\bin\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\NM1\bin\Debug\NutricareQRcode.pdb
+D:\OneDrive\ThuyProject\NM1\bin\Debug\DevExpress.Data.v19.2.dll
+D:\OneDrive\ThuyProject\NM1\bin\Debug\DevExpress.Printing.v19.2.Core.dll
+D:\OneDrive\ThuyProject\NM1\bin\Debug\DevExpress.Utils.v19.2.dll
+D:\OneDrive\ThuyProject\NM1\bin\Debug\DevExpress.Pdf.v19.2.Core.dll
+D:\OneDrive\ThuyProject\NM1\bin\Debug\DevExpress.Data.v19.2.xml
+D:\OneDrive\ThuyProject\NM1\bin\Debug\DevExpress.Printing.v19.2.Core.xml
+D:\OneDrive\ThuyProject\NM1\bin\Debug\DevExpress.Utils.v19.2.xml
+D:\OneDrive\ThuyProject\NM1\bin\Debug\DevExpress.Pdf.v19.2.Core.xml
+D:\OneDrive\ThuyProject\NM1\bin\Debug\de\DevExpress.Data.v19.2.resources.dll
+D:\OneDrive\ThuyProject\NM1\bin\Debug\es\DevExpress.Data.v19.2.resources.dll
+D:\OneDrive\ThuyProject\NM1\bin\Debug\ja\DevExpress.Data.v19.2.resources.dll
+D:\OneDrive\ThuyProject\NM1\bin\Debug\ru\DevExpress.Data.v19.2.resources.dll
+D:\OneDrive\ThuyProject\NM1\bin\Debug\de\DevExpress.Printing.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\NM1\bin\Debug\es\DevExpress.Printing.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\NM1\bin\Debug\ja\DevExpress.Printing.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\NM1\bin\Debug\ru\DevExpress.Printing.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\NM1\bin\Debug\de\DevExpress.Utils.v19.2.resources.dll
+D:\OneDrive\ThuyProject\NM1\bin\Debug\es\DevExpress.Utils.v19.2.resources.dll
+D:\OneDrive\ThuyProject\NM1\bin\Debug\ja\DevExpress.Utils.v19.2.resources.dll
+D:\OneDrive\ThuyProject\NM1\bin\Debug\ru\DevExpress.Utils.v19.2.resources.dll
+D:\OneDrive\ThuyProject\NM1\bin\Debug\de\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\NM1\bin\Debug\es\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\NM1\bin\Debug\ja\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\NM1\bin\Debug\ru\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\OneDrive\ThuyProject\NM1\obj\Debug\NutricareQRcode.csproj.AssemblyReference.cache
+D:\OneDrive\ThuyProject\NM1\obj\Debug\NutricareQRcode.Form1.resources
+D:\OneDrive\ThuyProject\NM1\obj\Debug\NutricareQRcode.Properties.Resources.resources
+D:\OneDrive\ThuyProject\NM1\obj\Debug\NutricareQRcode.csproj.GenerateResource.cache
+D:\OneDrive\ThuyProject\NM1\obj\Debug\NutricareQRcode.csproj.CoreCompileInputs.cache
+D:\OneDrive\ThuyProject\NM1\obj\Debug\NutricareQRcode.csproj.CopyComplete
+D:\OneDrive\ThuyProject\NM1\obj\Debug\NutricareQRcode.exe
+D:\OneDrive\ThuyProject\NM1\obj\Debug\NutricareQRcode.pdb

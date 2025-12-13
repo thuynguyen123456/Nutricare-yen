@@ -1,0 +1,15 @@
+SQL server,ADMINKKK
+Database,TotalSmartCoding_PEER
+Username,sa
+Password,1234
+DominoIP,192.168.0.10
+DominoPort,7000
+TIJPort,COM3
+TIJBaud,115200
+Datasize,8
+Parity,None
+Stopbit ,1
+PackIP,192.168.0.1
+PackPort,23
+CartonCam,192.168.0.2
+CartonPort,23
