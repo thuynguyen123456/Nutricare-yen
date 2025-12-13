@@ -82,11 +82,6 @@ namespace NutricareQRcode
             ProgramInit();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void LoadSettingFile()
         {
             string[] lines = System.IO.File.ReadAllLines(@"Setting.csv");
@@ -145,14 +140,11 @@ namespace NutricareQRcode
             curPackPerCarton = SQLConnection.GetPackPerCarton(curCommodityID);
             curCartonPerPallet = SQLConnection.GetCartonPerPallet(curCommodityID);
             curLocationID = SQLConnection.GetLocationID(curBatchID);
-            curQueueID = "0";
             curCartonID = SQLConnection.GetCurCartonID();
+            curQueueID = "0";
             lineVolume = "900";
             entryStatus = "6";
         }
-
-        ////////////////////////////////////////////////////////////////common//////////////////////////////////////////////////////////////////////// 
-        ///
 
         private void ProgramInit()
         {
@@ -180,13 +172,10 @@ namespace NutricareQRcode
         {
             try
             {
-                //get the first data for TIJ
                 //Get printed carton code
                 printedCartonCode = "http://nits.vn/" + SQLConnection.GetPrintedCartonCode();
                 //get printed carton code ID
                 printedcartonCodeID = SQLConnection.GetCurCartonCodeID();
-                //Transfer data to TIJ
-                //TransferDataToTIJ(printedCartonCode);           
 
                 //Get the first data for Domino
                 printedPackcode = "http://nits.vn/" + SQLConnection.GetPrintedPackCode();
@@ -199,9 +188,7 @@ namespace NutricareQRcode
                 MessageBox.Show("Hết mã code!");
             }
         }
-        /// <summary>
-        /// /////////////////////////////////////////////////////////////Pack camera///////////////////////////////////////////////////////////////////////////
-        /// </summary>
+
         private void PackCamInit()
         {
             StartPackCamClient();
@@ -307,27 +294,7 @@ namespace NutricareQRcode
                 }
             }
         }
-        private void SendPackCam(string data)
-        {
-            if (clientPackcam != null)
-            {
-                try
-                {
-                    Object objDta = data;
-
-                    byte[] byData = System.Text.Encoding.ASCII.GetBytes(objDta.ToString());
-
-                    clientPackcam.Send(byData);
-
-                    //waitForDataPackCam();
-
-                }
-                catch (SocketException)
-                {
-                    MessageBox.Show("Loi Socket");
-                }
-            }
-        }
+       
         private void StopClientPackCam()
         {
             if (clientPackcam != null)
@@ -499,27 +466,7 @@ namespace NutricareQRcode
                 }
             }
         }
-        private void SendCartonCam(string data)
-        {
-            if (clientCartoncam != null)
-            {
-                try
-                {
-                    Object objDta = data;
-
-                    byte[] byData = System.Text.Encoding.ASCII.GetBytes(objDta.ToString());
-
-                    clientCartoncam.Send(byData);
-
-                    //waitForDataCartonCam();
-
-                }
-                catch (SocketException)
-                {
-                    MessageBox.Show("Loi Socket");
-                }
-            }
-        }
+       
         private void StopClientCartonCam()
         {
             if (clientCartoncam != null)
@@ -863,8 +810,6 @@ namespace NutricareQRcode
 
                     client.Send(byData);
 
-                    //waitForData();
-
                 }
                 catch (SocketException)
                 {
@@ -889,11 +834,6 @@ namespace NutricareQRcode
         private void buttonDisconnect_Click(object sender, EventArgs e)
         {
             stopClient();
-        }
-
-        private void buttonMes_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void TransferDataToDonino(string dominoCode)
@@ -927,28 +867,12 @@ namespace NutricareQRcode
             send((char)0x1B + "OE" + data.Length.ToString("0000") + data + (char)0x04);
         }
 
-        private string ConvertStringToHexString(string str)
-        {
-            byte[] ba = Encoding.Default.GetBytes(str);
-            var hexString = BitConverter.ToString(ba);
-
-            hexString = "00" + hexString.Replace("-", "00");
-            return hexString;
-        }
-        ///
-
-
         private void buttonStart_Click(object sender, EventArgs e)
         {
             if (curFillingLine == "0")
                 return;
             TIJInit();
             GetFirstPrintedData();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -962,11 +886,6 @@ namespace NutricareQRcode
             {
                 send((char)0x1B + "T1?" + (char)0x04);
             }
-        }
-
-        private void labelProNum_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void labelProNum_TextChanged(object sender, EventArgs e)
@@ -998,20 +917,10 @@ namespace NutricareQRcode
             }
         }
 
-        private void labelTrigTJI_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonClearBuff_Click(object sender, EventArgs e)
         {
             //send((char)0x1B+"}J"+ "1"+ (char)0x04);
             send((char)0x1B + "OE00002" + (char)0x04);
-        }
-
-        private void buttonStop_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void comboBoxFillingLine_SelectedIndexChanged(object sender, EventArgs e)
@@ -1019,33 +928,6 @@ namespace NutricareQRcode
             curFillingLine = comboBoxFillingLine.SelectedItem.ToString();
         }
         //Simulation
-
-        private void buttonPackCam_Click(object sender, EventArgs e)
-        {
-            printedPackcode = SQLConnection.GetPrintedPackCode();
-            printedPackcodeID = SQLConnection.GetCurPackCodeID();
-
-            PackCartonInfor();
-            SQLConnection.InsertPack(GetrDateTimeNow(), curFillingLine, curBatchID, curLocationID, curQueueID, curCommodityID, printedPackcode, lineVolume, entryStatus);
-            UpDateCheckedPackDisplay(1);
-            SQLConnection.TurnOnPrintedPackCode(int.Parse(printedPackcodeID), 1, GetrDateTimeNow());
-        }
-
-        private void buttonCartonCAm_Click(object sender, EventArgs e)
-        {
-            //Get printed carton code
-            printedCartonCode = SQLConnection.GetPrintedCartonCode();
-            //get printed carton code ID
-            printedcartonCodeID = SQLConnection.GetCurCartonCodeID();
-
-            PackCartonInfor();
-            SQLConnection.InsertCarton(GetrDateTimeNow(), entryStatus, curPackPerCarton, lineVolume, "1", printedCartonCode, "10350", curCommodityID, curLocationID, curBatchID, curFillingLine);
-            string temp1 = SQLConnection.GetCurCartonID();
-            SQLConnection.UPdateCartonRowOfPackTbl(curPackPerCarton, SQLConnection.GetCurCartonID(), GetShortDateNow(), curBatchID);
-            UpDateCheckedPackDisplay(1);
-            //Update the printed status 
-            SQLConnection.TurnOnPrintedCartonCode(int.Parse(printedcartonCodeID), 1, GetrDateTimeNow());
-        }
 
         private void UpDateCheckedPackDisplay(int id)
         {
@@ -1091,31 +973,6 @@ namespace NutricareQRcode
             UpDateCheckedPackDisplay(1);
         }
 
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxNSX_TextChanged(object sender, EventArgs e)
-        {
-            if (textBoxNSX.Text.Length == 10)
-            {
-                int curYear = int.Parse(textBoxNSX.Text.Substring(6, 4));
-                string nextYear = (curYear + 2).ToString();
-                textBoxHSD.Text = textBoxNSX.Text.Replace(textBoxNSX.Text.Substring(6, 4), nextYear);
-            }
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnConnect_Click(object sender, EventArgs e)
         {
             if (textBoxLotNum.Text.Length < 10)
@@ -1123,6 +980,7 @@ namespace NutricareQRcode
                 MessageBox.Show("Kiểm tra lại số LOT!");
                 return;
             }
+
             PackCartonInfor();
             TIJInit();
             DominoInit();
@@ -1137,33 +995,6 @@ namespace NutricareQRcode
                 btnConnect.Enabled = false;
                 buttonDisCon.Enabled = true;
             }
-        }
-
-        private void dataGridViewFailCarton_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int numrow;
-            numrow = e.RowIndex;
-
-            if (dataGridViewFailCarton.Rows[numrow].Cells[1].Value == null)
-            {
-                return;
-            }
-            labelCellInfor.Text = dataGridViewFailCarton.Rows[numrow].Cells[1].Value.ToString();
-        }
-
-        private void buttonDeleteCarton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridViewFailCarton_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void buttonDeleteCartonCan_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void textBoxNSX_TextChanged_1(object sender, EventArgs e)
@@ -1197,11 +1028,6 @@ namespace NutricareQRcode
             UpDateCheckedPackDisplay(1);
         }
 
-        private void groupBox11_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click_2(object sender, EventArgs e)
         {
             P.Close();
@@ -1214,18 +1040,6 @@ namespace NutricareQRcode
                 btnConnect.Enabled = true;
                 buttonDisCon.Enabled = false;
             }
-        }
-
-        private void dataGridViewCheckedCarton_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int numrow;
-            numrow = e.RowIndex;
-
-            if (dataGridViewCheckedCarton.Rows[numrow].Cells[1].Value == null)
-            {
-                return;
-            }
-            labelCellInfor.Text = dataGridViewCheckedCarton.Rows[numrow].Cells[1].Value.ToString();
         }
 
         private void buttonDeleteCarton_Click_1(object sender, EventArgs e)
@@ -1241,27 +1055,10 @@ namespace NutricareQRcode
             UpDateCheckedPackDisplay(2);
         }
 
-        private void buttonDeleteAllCan_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonDeletecan_Click(object sender, EventArgs e)
         {
             SQLConnection.DeleteRowsViaPackcode(labelCellInfor.Text);
             UpDateCheckedPackDisplay(2);
-        }
-
-        private void dataGridViewCheckedPack_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int numrow;
-            numrow = e.RowIndex;
-
-            if (dataGridViewCheckedPack.Rows[numrow].Cells[1].Value == null)
-            {
-                return;
-            }
-            labelCellInfor.Text = dataGridViewCheckedPack.Rows[numrow].Cells[1].Value.ToString();
         }
 
         private void button2_Click_3(object sender, EventArgs e)
@@ -1272,11 +1069,6 @@ namespace NutricareQRcode
         private void button4_Click(object sender, EventArgs e)
         {
             send((char)0x1B + "N1" + (char)0x04);
-        }
-
-        private void dataGridViewPackWaitPack_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void timerCheckDominostate_Tick(object sender, EventArgs e)
@@ -1305,16 +1097,6 @@ namespace NutricareQRcode
             waitForDataPackCam();
             waitForDataCartonCam();
             GetFirstPrintedData();
-        }
-
-        private void buttonStopCmd_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridViewFailCarton_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void dataGridViewFailCarton_CellClick_1(object sender, DataGridViewCellEventArgs e)

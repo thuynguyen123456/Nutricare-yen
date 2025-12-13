@@ -366,7 +366,6 @@ namespace NutricareQRcode
             this.buttonMes.TabIndex = 42;
             this.buttonMes.Text = "Load message";
             this.buttonMes.UseVisualStyleBackColor = false;
-            this.buttonMes.Click += new System.EventHandler(this.buttonMes_Click);
             // 
             // buttonDisconnect
             // 
@@ -551,7 +550,6 @@ namespace NutricareQRcode
             this.button1.TabIndex = 42;
             this.button1.Text = "Send";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonDisconnectRs232
             // 
@@ -696,7 +694,6 @@ namespace NutricareQRcode
             this.buttonStop.TabIndex = 41;
             this.buttonStop.Text = "Stop";
             this.buttonStop.UseVisualStyleBackColor = false;
-            this.buttonStop.Click += new System.EventHandler(this.buttonStop_Click);
             // 
             // buttonStart
             // 
@@ -863,7 +860,6 @@ namespace NutricareQRcode
             this.tabPage1.Size = new System.Drawing.Size(1596, 852);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "AUTO";
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -920,7 +916,6 @@ namespace NutricareQRcode
             this.dataGridViewPackWaitPack.ReadOnly = true;
             this.dataGridViewPackWaitPack.Size = new System.Drawing.Size(300, 740);
             this.dataGridViewPackWaitPack.TabIndex = 57;
-            this.dataGridViewPackWaitPack.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPackWaitPack_CellContentClick);
             // 
             // ColumnSTT2
             // 
@@ -1001,7 +996,6 @@ namespace NutricareQRcode
             this.groupBox11.TabIndex = 70;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Data";
-            this.groupBox11.Enter += new System.EventHandler(this.groupBox11_Enter);
             // 
             // labelPalletNum
             // 
@@ -1199,7 +1193,6 @@ namespace NutricareQRcode
             this.buttonStopCmd.TabIndex = 66;
             this.buttonStopCmd.Text = "Stop command";
             this.buttonStopCmd.UseVisualStyleBackColor = false;
-            this.buttonStopCmd.Click += new System.EventHandler(this.buttonStopCmd_Click);
             // 
             // buttonReset
             // 
@@ -1428,7 +1421,6 @@ namespace NutricareQRcode
             this.buttonDeleteAllCan.TabIndex = 66;
             this.buttonDeleteAllCan.Text = "Xóa toàn bộ";
             this.buttonDeleteAllCan.UseVisualStyleBackColor = false;
-            this.buttonDeleteAllCan.Click += new System.EventHandler(this.buttonDeleteAllCan_Click);
             // 
             // groupBox5
             // 
@@ -1465,7 +1457,6 @@ namespace NutricareQRcode
             this.dataGridViewFailCarton.Size = new System.Drawing.Size(300, 740);
             this.dataGridViewFailCarton.TabIndex = 59;
             this.dataGridViewFailCarton.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFailCarton_CellClick_1);
-            this.dataGridViewFailCarton.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFailCarton_CellContentClick_1);
             // 
             // ColumnSTT1
             // 
@@ -1544,7 +1535,6 @@ namespace NutricareQRcode
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "MANUAL";
             this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // timerCheckDominostate
             // 
@@ -1564,7 +1554,6 @@ namespace NutricareQRcode
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBoxSQL.ResumeLayout(false);
             this.groupBoxSQL.PerformLayout();
             this.groupBoxDomino.ResumeLayout(false);
