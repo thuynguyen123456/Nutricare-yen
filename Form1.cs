@@ -18,7 +18,7 @@ namespace NutricareQRcode
 {
     public partial class Form1 : Form
     {
-        public static int canNum=0;
+        public static int canNum = 0;
         public static int carNum = 0;
         //TIJ
         public static byte ESC = 0x1b;
@@ -39,6 +39,9 @@ namespace NutricareQRcode
         public AsyncCallback pfnCallBackCartonCam;
         public Socket clientCartoncam;
         IAsyncResult m_asynResultCartonCam;
+        //Enable camera 
+        private bool packCamEnabled = false;
+        private bool cartonCamEnabled = false;
 
         //Common
         delegate void SetTextCallback(string text); // Khai bao delegate SetTextCallBack voi tham so string
@@ -124,12 +127,31 @@ namespace NutricareQRcode
                         P.StopBits = StopBits.Two;
                         break;
                 }
-                //Pack camera
-                strPackCamIP = lines[11].Split(',')[1];
+                // Pack camera (Dòng 11)
+                string[] packIpLine = lines[11].Split(','); // Tách dòng 11
+                strPackCamIP = packIpLine[1];
                 strPackCamPort = lines[12].Split(',')[1];
-                //Carton camera
-                strCartonCamIP = lines[13].Split(',')[1];
+                if (packIpLine.Length > 2) // Kiểm tra nếu có trường thứ 3
+                {
+                    packCamEnabled = (packIpLine[2].Trim() == "1");
+                }
+                else
+                {
+                    packCamEnabled = true; // Mặc định bật nếu thiếu trường
+                }
+
+                // Carton camera (Dòng 13)
+                string[] cartonCamIpLine = lines[13].Split(','); // Tách dòng 13
+                strCartonCamIP = cartonCamIpLine[1];
                 strCartonCamPort = lines[14].Split(',')[1];
+                if (cartonCamIpLine.Length > 2) // Kiểm tra nếu có trường thứ 3
+                {
+                    cartonCamEnabled = (cartonCamIpLine[2].Trim() == "1");
+                }
+                else
+                {
+                    cartonCamEnabled = true; // Mặc định bật nếu thiếu trường
+                }
             }
         }
 
@@ -177,10 +199,9 @@ namespace NutricareQRcode
                 //get printed carton code ID
                 printedcartonCodeID = SQLConnection.GetCurCartonCodeID();
 
-                //Get the first data for Domino
+                //Get the first data for pack
                 printedPackcode = "http://nits.vn/" + SQLConnection.GetPrintedPackCode();
                 printedPackcodeID = SQLConnection.GetCurPackCodeID();
-                //TransferDataToDonino(printedPackcode);
                 Console.WriteLine("Get first printed data");
             }
             catch
@@ -191,6 +212,7 @@ namespace NutricareQRcode
 
         private void PackCamInit()
         {
+            if (!packCamEnabled) return; // <-- Dừng nếu camera bị tắt
             StartPackCamClient();
             waitForDataPackCam();
         }
@@ -256,9 +278,7 @@ namespace NutricareQRcode
                     {
                         PackCartonInfor();
                         SQLConnection.InsertPack(GetrDateTimeNow(), curFillingLine, curBatchID, curLocationID, curQueueID, curCommodityID, fullCode, lineVolume, entryStatus);
-                        UpDateCheckedPackDisplay(1);
-                        textBoxPack.Text = fullCode;
-                        canNum++;
+                        
 
                     }));
                 }
@@ -294,7 +314,7 @@ namespace NutricareQRcode
                 }
             }
         }
-       
+
         private void StopClientPackCam()
         {
             if (clientPackcam != null)
@@ -308,6 +328,7 @@ namespace NutricareQRcode
         /// </summary>
         private void CartonCamInit()
         {
+            if (!packCamEnabled) return; // <-- Dừng nếu camera bị tắt
             StartCartonCamClient();
             waitForDataCartonCam();
         }
@@ -365,7 +386,7 @@ namespace NutricareQRcode
                         labelNumCarton.Text = (carNum).ToString();
                         PackCartonInfor();
                         SQLConnection.InsertCarton(GetrDateTimeNow(), entryStatus, curPackPerCarton, lineVolume, "1", fullCode, "10350", curCommodityID, curLocationID, curBatchID, curFillingLine);
-                        SQLConnection.UPdateCartonRowOfPackTbl(curPackPerCarton, SQLConnection.GetCartonIDWithCode(fullCode), GetShortDateNow(),curBatchID);
+                        SQLConnection.UPdateCartonRowOfPackTbl(curPackPerCarton, SQLConnection.GetCartonIDWithCode(fullCode), GetShortDateNow(), curBatchID);
                         UpDateCheckedPackDisplay(2);
                         textBoxCarton.Text = szData;
                     }));
@@ -466,7 +487,7 @@ namespace NutricareQRcode
                 }
             }
         }
-       
+
         private void StopClientCartonCam()
         {
             if (clientCartoncam != null)
@@ -593,15 +614,19 @@ namespace NutricareQRcode
                     {
                         this.Invoke(new Action(() =>
                         {
-                        //Update the printed status 
-                        SQLConnection.TurnOnPrintedCartonCode(int.Parse(printedcartonCodeID), 1, GetrDateTimeNow());
+                            // NẾU CARTON CAM BỊ TẮT, GIẢ LẬP ĐỌC MÃ VÀ AGGREGATION
+                            if (!cartonCamEnabled)
+                            {
+                                // printedCartonCode đang giữ mã vừa in xong
+                                SimulateCartonCamRead(printedCartonCode);
+                            }
 
-                        //Get printed carton code
-                        printedCartonCode = "http://nits.vn/" + SQLConnection.GetPrintedCartonCode();
-                        //get printed carton code ID
-                        printedcartonCodeID = SQLConnection.GetCurCartonCodeID();
-                        //Transfer data to TIJ
-                        TransferDataToTIJ(printedCartonCode);
+                            // Cập nhật trạng thái in cũ và lấy mã mới để in tiếp
+                            SQLConnection.TurnOnPrintedCartonCode(int.Parse(printedcartonCodeID), 1, GetrDateTimeNow());
+
+                            printedCartonCode = "http://nits.vn/" + SQLConnection.GetPrintedCartonCode();
+                            printedcartonCodeID = SQLConnection.GetCurCartonCodeID();
+                            TransferDataToTIJ(printedCartonCode);
                             textBoxQRCodeTIJ.Text = printedCartonCode;
                         }));
                     }
@@ -611,6 +636,24 @@ namespace NutricareQRcode
                     }
                 }
             }
+        }
+
+        // Hàm mới: Giả lập việc Carton Camera đọc được mã và thực hiện liên kết
+        private void SimulateCartonCamRead(string cartonCode)
+        {
+            this.Invoke(new Action(() =>
+            {
+                // Logic tương tự onDataReceivedCartonCam (chỉ phần mã hợp lệ)
+                carNum++;
+                labelNumCarton.Text = (carNum).ToString();
+                PackCartonInfor();
+                // 1. Insert Carton
+                SQLConnection.InsertCarton(GetrDateTimeNow(), entryStatus, curPackPerCarton, lineVolume, "1", cartonCode, "10350", curCommodityID, curLocationID, curBatchID, curFillingLine);
+                // 2. Aggregate Packs
+                SQLConnection.UPdateCartonRowOfPackTbl(curPackPerCarton, SQLConnection.GetCartonIDWithCode(cartonCode), GetShortDateNow(), curBatchID);
+                UpDateCheckedPackDisplay(2);
+                textBoxCarton.Text = cartonCode;
+            }));
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -894,8 +937,29 @@ namespace NutricareQRcode
             {
                 return;
             }
+
+            // NẾU PACK CAM BỊ TẮT, GIẢ LẬP ĐỌC MÃ
+            if (!packCamEnabled)
+            {
+                SimulatePackCamRead(printedPackcode);
+            }
+
             ChangeThePrinterCode();
             ChangeThePrinterCode();
+        }
+
+        // Hàm mới: Giả lập việc Pack Camera đọc được mã
+        private void SimulatePackCamRead(string packCode)
+        {
+            this.Invoke(new Action(() =>
+            {
+                // Logic tương tự onDataReceivedPackCam
+                PackCartonInfor();
+                SQLConnection.InsertPack(GetrDateTimeNow(), curFillingLine, curBatchID, curLocationID, curQueueID, curCommodityID, packCode, lineVolume, entryStatus);
+                UpDateCheckedPackDisplay(1);
+                textBoxPack.Text = packCode;
+                canNum++;
+            }));
         }
 
         private void ChangeThePrinterCode()
@@ -943,14 +1007,14 @@ namespace NutricareQRcode
             labelNumWaitingCan.Text = (dataGridViewPackWaitPack.Rows.Count - 1).ToString();
             labelNumWaitingCan2.Text = (dataGridViewPackWaitPack.Rows.Count - 1).ToString();
 
-            labelNumFailCarton.Text = (dataGridViewFailCarton.Rows.Count-1).ToString();
+            labelNumFailCarton.Text = (dataGridViewFailCarton.Rows.Count - 1).ToString();
             labelNumFailCarton2.Text = (dataGridViewFailCarton.Rows.Count - 1).ToString();
-            labelNumCarton.Text = (dataGridViewCheckedCarton.Rows.Count-1).ToString();
-            labelNumCarton2.Text = (dataGridViewCheckedCarton.Rows.Count-1).ToString();
+            labelNumCarton.Text = (dataGridViewCheckedCarton.Rows.Count - 1).ToString();
+            labelNumCarton2.Text = (dataGridViewCheckedCarton.Rows.Count - 1).ToString();
 
             labelPalletNum.Text = ((dataGridViewCheckedCarton.Rows.Count - 1) / int.Parse(curCartonPerPallet)).ToString();
 
-            for (int i=0;i< dataGridViewPackWaitPack.Rows.Count-1;i++)
+            for (int i = 0; i < dataGridViewPackWaitPack.Rows.Count - 1; i++)
             {
                 dataGridViewPackWaitPack.Rows[i].Cells[0].Value = i + 1;
             }
@@ -986,8 +1050,17 @@ namespace NutricareQRcode
             DominoInit();
             GetFirstPrintedData();
             UpDateCheckedPackDisplay(2);
-            PackCamInit();
-            CartonCamInit();
+
+            // KẾT NỐI CÓ ĐIỀU KIỆN
+            if (packCamEnabled)
+            {
+                PackCamInit();
+            }
+            if (cartonCamEnabled)
+            {
+                CartonCamInit();
+            }
+
             timerCheckDominostate.Enabled = true;
 
             if (P.IsOpen && client != null && clientCartoncam != null && clientPackcam != null)
@@ -1073,7 +1146,7 @@ namespace NutricareQRcode
 
         private void timerCheckDominostate_Tick(object sender, EventArgs e)
         {
-            if(labelProNum.Text=="label")
+            if (labelProNum.Text == "label")
             {
                 MessageBox.Show("Reset connection cho máy in, rồi kết nối lại phần mềm!");
             }
@@ -1092,7 +1165,7 @@ namespace NutricareQRcode
                 send((char)0x1B + "Q1Y" + (char)0x04);
                 duplicatefault = false;
             }
-            
+
             buttonReset.BackColor = Color.Green;
             waitForDataPackCam();
             waitForDataCartonCam();
