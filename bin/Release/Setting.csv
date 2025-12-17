@@ -1,0 +1,15 @@
+SQL server,DESKTOP-07FCVPK,
+Database,TotalSmartCode,
+Username,sa,
+Password,nutricare@123,
+PackPrinterPortName,COM3,
+PackPrinterPortBaud,115200,
+CartonPrinterPort,COM4,
+CartonPrinterBaud,115200,
+Datasize,8,
+Parity,None,
+Stopbit ,1,
+PackIP,192.168.0.1,0
+PackPort,23,
+CartonCam,192.168.0.2,0
+CartonPort,23,

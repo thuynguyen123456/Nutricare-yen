@@ -1,15 +1,15 @@
-SQL server,ADMINKKK
-Database,TotalSmartCoding_PEER
-Username,sa
-Password,1234
-DominoIP,192.168.0.10
-DominoPort,7000
-TIJPort,COM3
-TIJBaud,115200
-Datasize,8
-Parity,None
-Stopbit ,1
+SQL server,DESKTOP-07FCVPK,
+Database,TotalSmartCode,
+Username,sa,
+Password,nutricare@123,
+PackPrinterPortName,COM3,
+PackPrinterPortBaud,115200,
+CartonPrinterPort,COM4,
+CartonPrinterBaud,115200,
+Datasize,8,
+Parity,None,
+Stopbit ,1,
 PackIP,192.168.0.1,0
-PackPort,23
+PackPort,23,
 CartonCam,192.168.0.2,0
-CartonPort,23
+CartonPort,23,

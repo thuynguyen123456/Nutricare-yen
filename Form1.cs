@@ -20,31 +20,35 @@ namespace NutricareQRcode
     {
         public static int canNum = 0;
         public static int carNum = 0;
-        //TIJ
-        public static byte ESC = 0x1b;
-        public static byte STX = 0x02;
-        public static byte ETX = 0x03;
 
-        SerialPort P = new SerialPort(); // Khai báo 1 Object SerialPort mới.
-        string InputData = String.Empty; // Khai báo string buff dùng cho hiển thị dữ liệu sau này.
-        //Domino
-        public AsyncCallback pfnCallBack;
-        public Socket client;
-        IAsyncResult m_asynResult;
-        //Pack camera
+        // --- MÁY IN SERIAL BUFFER MỚI ---
+        public SerialPort packPrinterPort;
+        public SerialPort cartonPrinterPort;
+
+        private string strPackPrinterPortName;
+        private string strPackPrinterBaud;
+        private string strCartonPrinterPortName;
+        private string strCartonPrinterBaud;
+
+        public const byte ESC = 0x1B;
+        public const byte PRINTER_COMMAND_START = 0x53; // 'S'
+        public const byte PRINTER_COMMAND_FUNCTION = 0x31; // '1'
+        public const byte PRINTER_RESPONSE_OK_START = 0x4F; // 'O'
+        public const byte PRINTER_RESPONSE_OK_END = 0x35; // '5'
+
+        // --- CAMERA SOCKETS (GIỮ NGUYÊN) ---
         public AsyncCallback pfnCallBackPackCam;
         public Socket clientPackcam;
         IAsyncResult m_asynResultPackCam;
-        //Carton camera 
         public AsyncCallback pfnCallBackCartonCam;
         public Socket clientCartoncam;
         IAsyncResult m_asynResultCartonCam;
-        //Enable camera 
+
         private bool packCamEnabled = false;
         private bool cartonCamEnabled = false;
 
-        //Common
-        delegate void SetTextCallback(string text); // Khai bao delegate SetTextCallBack voi tham so string
+        // --- CÁC BIẾN DATA VÀ CONFIG CẦN THIẾT ---
+        delegate void SetTextCallback(string text);
 
         private static string printedCartonCode;
         private static string printedcartonCodeID;
@@ -59,7 +63,7 @@ namespace NutricareQRcode
         private static string curCartonPerPallet;
         private static string curLocationID;
         private static string curQueueID;
-        private static string lineVolume = "10800";
+        private static string lineVolume = "900";
         private static string entryStatus = "6";
 
         private static bool duplicatefault;
@@ -70,18 +74,19 @@ namespace NutricareQRcode
         private string strUsername;
         private string strPassDB;
 
-        private string strDominoAdd;
-        private string strDominoPort;
-
         private string strPackCamIP;
         private string strPackCamPort;
 
         private string strCartonCamIP;
         private string strCartonCamPort;
 
+        // ĐÃ XÓA: SerialPort P, InputData, client, pfnCallBack, strDominoAdd, strDominoPort, m_asynResult
+
         public Form1()
         {
             InitializeComponent();
+            packPrinterPort = new SerialPort();
+            cartonPrinterPort = new SerialPort();
             ProgramInit();
         }
 
@@ -90,67 +95,62 @@ namespace NutricareQRcode
             string[] lines = System.IO.File.ReadAllLines(@"Setting.csv");
             if (lines.Length > 0)
             {
-                //database
+                // 0-3: Database
                 strServer = lines[0].Split(',')[1];
                 strDatabase = lines[1].Split(',')[1];
                 strUsername = lines[2].Split(',')[1];
                 strPassDB = lines[3].Split(',')[1];
-                //Domino
-                strDominoAdd = lines[4].Split(',')[1];
-                strDominoPort = lines[5].Split(',')[1];
-                //TIJ
-                P.PortName = lines[6].Split(',')[1];
-                P.BaudRate = Convert.ToInt32(lines[7].Split(',')[1]);
-                P.DataBits = Convert.ToInt32(lines[8].Split(',')[1]);
+
+                // 4 & 5: PACK PRINTER NEW SETTINGS
+                strPackPrinterPortName = lines[4].Split(',')[1];
+                strPackPrinterBaud = lines[5].Split(',')[1];
+
+                // 6 & 7: CARTON PRINTER NEW SETTINGS
+                strCartonPrinterPortName = lines[6].Split(',')[1];
+                strCartonPrinterBaud = lines[7].Split(',')[1];
+
+                // 8, 9, 10: DataBits, Parity, StopBits
+                cartonPrinterPort.DataBits = Convert.ToInt32(lines[8].Split(',')[1]);
                 switch (lines[9].Split(',')[1])
                 {
-                    case "Odd":
-                        P.Parity = Parity.Odd;
-                        break;
-                    case "None":
-                        P.Parity = Parity.None;
-                        break;
-                    case "Even":
-                        P.Parity = Parity.Even;
-                        break;
+                    case "Odd": cartonPrinterPort.Parity = Parity.Odd; break;
+                    case "None": cartonPrinterPort.Parity = Parity.None; break;
+                    case "Even": cartonPrinterPort.Parity = Parity.Even; break;
                 }
                 switch (lines[10].Split(',')[1])
                 {
-                    case "1":
-                        P.StopBits = StopBits.One;
-                        break;
-                    case "1.5":
-                        P.StopBits = StopBits.OnePointFive;
-                        break;
-
-                    case "2":
-                        P.StopBits = StopBits.Two;
-                        break;
+                    case "1": cartonPrinterPort.StopBits = StopBits.One; break;
+                    case "1.5": cartonPrinterPort.StopBits = StopBits.OnePointFive; break;
+                    case "2": cartonPrinterPort.StopBits = StopBits.Two; break;
                 }
-                // Pack camera (Dòng 11)
-                string[] packIpLine = lines[11].Split(','); // Tách dòng 11
+
+                packPrinterPort.DataBits = cartonPrinterPort.DataBits;
+                packPrinterPort.Parity = cartonPrinterPort.Parity;
+                packPrinterPort.StopBits = cartonPrinterPort.StopBits;
+
+                // 11-14: Cấu hình Camera và Enable Flag
+                string[] packIpLine = lines[11].Split(',');
                 strPackCamIP = packIpLine[1];
                 strPackCamPort = lines[12].Split(',')[1];
-                if (packIpLine.Length > 2) // Kiểm tra nếu có trường thứ 3
+                if (packIpLine.Length > 2)
                 {
                     packCamEnabled = (packIpLine[2].Trim() == "1");
                 }
                 else
                 {
-                    packCamEnabled = true; // Mặc định bật nếu thiếu trường
+                    packCamEnabled = true;
                 }
 
-                // Carton camera (Dòng 13)
-                string[] cartonCamIpLine = lines[13].Split(','); // Tách dòng 13
+                string[] cartonCamIpLine = lines[13].Split(',');
                 strCartonCamIP = cartonCamIpLine[1];
                 strCartonCamPort = lines[14].Split(',')[1];
-                if (cartonCamIpLine.Length > 2) // Kiểm tra nếu có trường thứ 3
+                if (cartonCamIpLine.Length > 2)
                 {
                     cartonCamEnabled = (cartonCamIpLine[2].Trim() == "1");
                 }
                 else
                 {
-                    cartonCamEnabled = true; // Mặc định bật nếu thiếu trường
+                    cartonCamEnabled = true;
                 }
             }
         }
@@ -177,8 +177,6 @@ namespace NutricareQRcode
             SQLConnection.sqlUser = strUsername;
             SQLConnection.sqlPass = strPassDB;
 
-            string[] fillingLine = { "1", "2", "3", "4", "5" };
-            comboBoxFillingLine.Items.AddRange(fillingLine);
             Console.WriteLine("Program init: ");
         }
 
@@ -194,12 +192,8 @@ namespace NutricareQRcode
         {
             try
             {
-                //Get printed carton code
                 printedCartonCode = "http://nits.vn/" + SQLConnection.GetPrintedCartonCode();
-                //get printed carton code ID
                 printedcartonCodeID = SQLConnection.GetCurCartonCodeID();
-
-                //Get the first data for pack
                 printedPackcode = "http://nits.vn/" + SQLConnection.GetPrintedPackCode();
                 printedPackcodeID = SQLConnection.GetCurPackCodeID();
                 Console.WriteLine("Get first printed data");
@@ -210,9 +204,301 @@ namespace NutricareQRcode
             }
         }
 
+        // --- LOGIC MÁY IN SERIAL BUFFER MỚI ---
+
+        // Thêm vào phần khai báo biến toàn cục (Global Variables)
+        private List<byte> packReceivedBuffer = new List<byte>();
+        private List<byte> cartonReceivedBuffer = new List<byte>();
+
+
+        private void NewProtocol_ClearCache(SerialPort printer)
+        {
+            if (printer == null || !printer.IsOpen) return;
+            try
+            {
+                // Dọn dẹp List buffer tương ứng
+                if (printer == packPrinterPort) packReceivedBuffer.Clear();
+                if (printer == cartonPrinterPort) cartonReceivedBuffer.Clear();
+
+                byte[] clearCacheCommand = new byte[] { ESC, PRINTER_COMMAND_START, 0x37, 0x37, 0xDC, 0x0D, 0x0A };
+                printer.Write(clearCacheCommand, 0, clearCacheCommand.Length);
+            }
+            catch { }
+        }
+        private void NewProtocol_PrintSingleField(SerialPort printer, string content)
+        {
+            if (printer == null || !printer.IsOpen) return;
+
+            byte[] contentBytes = Encoding.ASCII.GetBytes(content);
+            byte[] message = new byte[contentBytes.Length + 7];
+
+            message[0] = ESC;
+            message[1] = PRINTER_COMMAND_START;
+            message[2] = PRINTER_COMMAND_FUNCTION;
+            message[3] = PRINTER_COMMAND_FUNCTION;
+
+            Array.Copy(contentBytes, 0, message, 4, contentBytes.Length);
+
+            int checksum = 0;
+            for (int i = 0; i < contentBytes.Length + 4; i++)
+            {
+                checksum += message[i];
+            }
+            checksum %= 256;
+            message[contentBytes.Length + 4] = (byte)checksum;
+
+            message[contentBytes.Length + 5] = 0x0D;
+            message[contentBytes.Length + 6] = 0x0A;
+
+            printer.Write(message, 0, message.Length);
+        }
+
+        private void TransferDataToPrinter(SerialPort printer, string code, string nsx, string hsd, string lotnum)
+        {
+            if (printer == null || !printer.IsOpen)
+            {
+                MessageBox.Show($"Máy in {printer.PortName} chưa kết nối!", "Lỗi Kết nối", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                NewProtocol_PrintSingleField(printer, code);
+                Thread.Sleep(50);
+                NewProtocol_PrintSingleField(printer, nsx);
+                Thread.Sleep(50);
+                NewProtocol_PrintSingleField(printer, hsd);
+                Thread.Sleep(50);
+                NewProtocol_PrintSingleField(printer, lotnum);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi gửi dữ liệu đến máy in {printer.PortName}: {ex.Message}");
+            }
+        }
+
+
+
+        private void InitNewPrinter(SerialPort printer, string portName, string baudRateStr, SerialDataReceivedEventHandler handler)
+        {
+            try
+            {
+                printer.PortName = portName;
+                printer.BaudRate = Convert.ToInt32(baudRateStr);
+                printer.ReadTimeout = 1000;
+
+                printer.DataReceived += handler;
+
+                if (!printer.IsOpen)
+                {
+                    printer.Open();
+                    NewProtocol_ClearCache(printer);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi kết nối hoặc khởi tạo máy in {portName}: {ex.Message}", "Lỗi Serial Port", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void PackPrinterInit()
+        {
+            InitNewPrinter(packPrinterPort, strPackPrinterPortName, strPackPrinterBaud, NewPrinterDataReceivedHandler);
+        }
+
+        private void CartonPrinterInit()
+        {
+            InitNewPrinter(cartonPrinterPort, strCartonPrinterPortName, strCartonPrinterBaud, NewPrinterDataReceivedHandler);
+        }
+
+        private void NewPrinterDataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        {
+            SerialPort sp = (SerialPort)sender;
+            int bytesToRead = sp.BytesToRead;
+            byte[] buffer = new byte[bytesToRead];
+            sp.Read(buffer, 0, bytesToRead);
+
+            if (sp == packPrinterPort)
+            {
+                packReceivedBuffer.AddRange(buffer);
+                ProcessPackBuffer();
+            }
+            else if (sp == cartonPrinterPort)
+            {
+                cartonReceivedBuffer.AddRange(buffer);
+                ProcessCartonBuffer();
+            }
+        }
+
+        private void ProcessPackBuffer()
+        {
+            // Kiểm tra nếu có ít nhất 4 byte (độ dài của ESC O K 5)
+            while (packReceivedBuffer.Count >= 4)
+            {
+                bool found = false;
+                for (int i = 0; i <= packReceivedBuffer.Count - 4; i++)
+                {
+                    if (packReceivedBuffer[i] == ESC &&
+                        packReceivedBuffer[i + 1] == PRINTER_RESPONSE_OK_START &&
+                        packReceivedBuffer[i + 2] == 0x4B && // 'K'
+                        packReceivedBuffer[i + 3] == PRINTER_RESPONSE_OK_END)
+                    {
+                        // Tìm thấy Trigger OK
+                        this.Invoke(new Action(() => {
+                            HandlePackPrintSuccess();
+                        }));
+
+                        // Xóa phần dữ liệu đã xử lý bao gồm cả mã Trigger
+                        packReceivedBuffer.RemoveRange(0, i + 4);
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) break; // Nếu không tìm thấy khung hình hợp lệ nào thì thoát vòng lặp chờ dữ liệu tiếp
+            }
+        }
+
+        private void ProcessCartonBuffer()
+        {
+            while (cartonReceivedBuffer.Count >= 4)
+            {
+                bool found = false;
+                for (int i = 0; i <= cartonReceivedBuffer.Count - 4; i++)
+                {
+                    if (cartonReceivedBuffer[i] == ESC &&
+                        cartonReceivedBuffer[i + 1] == PRINTER_RESPONSE_OK_START &&
+                        cartonReceivedBuffer[i + 2] == 0x4B &&
+                        cartonReceivedBuffer[i + 3] == PRINTER_RESPONSE_OK_END)
+                    {
+                        this.Invoke(new Action(() => {
+                            HandleCartonPrintSuccess();
+                        }));
+
+                        cartonReceivedBuffer.RemoveRange(0, i + 4);
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) break;
+            }
+        }
+
+        // --- LOGIC XỬ LÝ TRIGGER VÀ SIMULATION ---
+
+        private void HandlePackPrintSuccess()
+        {
+            if (duplicatefault) return;
+
+            // 1. Aggregation (Chỉ xảy ra khi camera TẮT -> Simulation Mode)
+            if (!packCamEnabled)
+            {
+                SimulatePackCamRead(printedPackcode);
+            }
+
+            try
+            {
+                // 2. Đánh dấu mã cũ là đã in và lấy mã mới
+                if (checkBox1Code.Checked == false)
+                {
+                    SQLConnection.TurnOnPrintedPackCode(int.Parse(printedPackcodeID), 1, GetrDateTimeNow());
+                }
+
+                printedPackcode = "http://nits.vn/" + SQLConnection.GetPrintedPackCode();
+                printedPackcodeID = SQLConnection.GetCurPackCodeID();
+
+                // 3. Đẩy mã mới vào Buffer
+                TransferDataToPrinter(
+                    packPrinterPort,
+                    printedPackcode,
+                    textBoxNSX.Text,
+                    textBoxHSD.Text,
+                    textBoxLotNum.Text
+                );
+            }
+            catch
+            {
+                MessageBox.Show("Kiểm tra phần mềm tạo code in (Pack)! Hết mã code.");
+            }
+        }
+
+        private void HandleCartonPrintSuccess()
+        {
+            if (duplicatefaultCarton) return;
+
+            // 1. Aggregation (Chỉ xảy ra khi camera TẮT -> Simulation Mode)
+            if (!cartonCamEnabled)
+            {
+                try
+                {
+                    string currentPrintedCartonCode = printedCartonCode;
+                    SimulateCartonCamRead(currentPrintedCartonCode);
+                }
+                catch
+                {
+                    MessageBox.Show("Lỗi mô phỏng quét mã Carton!");
+                    return;
+                }
+            }
+
+            try
+            {
+                // 2. Đánh dấu mã cũ là đã in và lấy mã mới
+                if (checkBox1Code.Checked == false)
+                {
+                    SQLConnection.TurnOnPrintedCartonCode(int.Parse(printedcartonCodeID), 1, GetrDateTimeNow());
+                }
+
+                printedCartonCode = "http://nits.vn/" + SQLConnection.GetPrintedCartonCode();
+                printedcartonCodeID = SQLConnection.GetCurCartonCodeID();
+
+                // 3. Đẩy mã mới vào Buffer
+                TransferDataToPrinter(
+                    cartonPrinterPort,
+                    printedCartonCode,
+                    textBoxNSX.Text,
+                    textBoxHSD.Text,
+                    textBoxLotNum.Text
+                );
+                // textBoxQRCodeTIJ.Text = printedCartonCode;
+            }
+            catch
+            {
+                MessageBox.Show("Hết mã code thùng!");
+            }
+        }
+
+        // --- HÀM GIẢ LẬP (SIMULATION) ---
+
+        private void SimulatePackCamRead(string packCode)
+        {
+            this.Invoke(new Action(() =>
+            {
+                PackCartonInfor();
+                SQLConnection.InsertPack(GetrDateTimeNow(), curFillingLine, curBatchID, curLocationID, curQueueID, curCommodityID, packCode, lineVolume, entryStatus);
+                UpDateCheckedPackDisplay(1);
+                // textBoxPack.Text = packCode;
+                canNum++;
+            }));
+        }
+
+        private void SimulateCartonCamRead(string cartonCode)
+        {
+            this.Invoke(new Action(() =>
+            {
+                carNum++;
+                PackCartonInfor();
+                SQLConnection.InsertCarton(GetrDateTimeNow(), entryStatus, curPackPerCarton, lineVolume, "1", cartonCode, "10350", curCommodityID, curLocationID, curBatchID, curFillingLine);
+                SQLConnection.UPdateCartonRowOfPackTbl(curPackPerCarton, SQLConnection.GetCartonIDWithCode(cartonCode), GetShortDateNow(), curBatchID);
+                UpDateCheckedPackDisplay(2);
+                // textBoxCarton.Text = cartonCode;
+            }));
+        }
+
+        // --- LOGIC CAMERA SOCKET (GIỮ NGUYÊN) ---
+
         private void PackCamInit()
         {
-            if (!packCamEnabled) return; // <-- Dừng nếu camera bị tắt
+            if (!packCamEnabled) return;
             StartPackCamClient();
             waitForDataPackCam();
         }
@@ -232,23 +518,11 @@ namespace NutricareQRcode
                 MessageBox.Show(se.Message);
             }
         }
-
         public class cSocketPacketPackCam
         {
             public System.Net.Sockets.Socket thisSocket;
             public byte[] dataBuffer = new byte[96];
         }
-
-        private string GetrDateTimeNow()
-        {
-            return DateTime.Now.ToString("yyyy-M-dd HH:mm:ss");
-        }
-
-        private string GetShortDateNow()
-        {
-            return DateTime.Now.ToString("yyyy-M-dd HH:mm:ss").Substring(0, 10);
-        }
-
         public void onDataReceivedPackCam(IAsyncResult asyn)
         {
             try
@@ -268,7 +542,6 @@ namespace NutricareQRcode
                     if (int.Parse(SQLConnection.CountPackCode(fullCode)) > 0)
                     {
                         duplicatefault = true;
-                        send((char)0x1B + "Q1N" + (char)0x04);
                         buttonReset.BackColor = Color.Red;
                         MessageBox.Show("Lỗi đọc code lon trùng nhau!");
                         return;
@@ -278,8 +551,9 @@ namespace NutricareQRcode
                     {
                         PackCartonInfor();
                         SQLConnection.InsertPack(GetrDateTimeNow(), curFillingLine, curBatchID, curLocationID, curQueueID, curCommodityID, fullCode, lineVolume, entryStatus);
-                        
-
+                        UpDateCheckedPackDisplay(1);
+                        // textBoxPack.Text = fullCode;
+                        canNum++;
                     }));
                 }
 
@@ -293,7 +567,6 @@ namespace NutricareQRcode
                 MessageBox.Show("OnDataReceived: Socket has been closed");
             }
         }
-
         public void waitForDataPackCam()
         {
             if (clientPackcam != null)
@@ -314,7 +587,6 @@ namespace NutricareQRcode
                 }
             }
         }
-
         private void StopClientPackCam()
         {
             if (clientPackcam != null)
@@ -323,12 +595,10 @@ namespace NutricareQRcode
                 clientPackcam = null;
             }
         }
-        /// <summary>
-        /// /////////////////////////////////////////////////////////////Carton camera///////////////////////////////////////////////////////////////////////////
-        /// </summary>
+
         private void CartonCamInit()
         {
-            if (!packCamEnabled) return; // <-- Dừng nếu camera bị tắt
+            if (!cartonCamEnabled) return; // ĐÃ SỬA LỖI LOGIC TẠI ĐÂY
             StartCartonCamClient();
             waitForDataCartonCam();
         }
@@ -348,13 +618,11 @@ namespace NutricareQRcode
                 MessageBox.Show(se.Message);
             }
         }
-
         public class cSocketPacketCartonCam
         {
             public System.Net.Sockets.Socket thisSocket;
             public byte[] dataBuffer = new byte[96];
         }
-
         public void onDataReceivedCartonCam(IAsyncResult asyn)
         {
             try
@@ -374,7 +642,7 @@ namespace NutricareQRcode
                     if (int.Parse(SQLConnection.CountCartonCode(fullCode)) > 0)
                     {
                         duplicatefaultCarton = true;
-                        StopPrintTIJ();
+                        // XÓA: StopPrintTIJ();
                         buttonReset.BackColor = Color.Red;
                         MessageBox.Show("Lỗi đọc code carton trùng nhau!");
                         return;
@@ -383,12 +651,12 @@ namespace NutricareQRcode
                     this.Invoke(new Action(() =>
                     {
                         carNum++;
-                        labelNumCarton.Text = (carNum).ToString();
+                        // labelNumCarton.Text = (carNum).ToString();
                         PackCartonInfor();
                         SQLConnection.InsertCarton(GetrDateTimeNow(), entryStatus, curPackPerCarton, lineVolume, "1", fullCode, "10350", curCommodityID, curLocationID, curBatchID, curFillingLine);
                         SQLConnection.UPdateCartonRowOfPackTbl(curPackPerCarton, SQLConnection.GetCartonIDWithCode(fullCode), GetShortDateNow(), curBatchID);
                         UpDateCheckedPackDisplay(2);
-                        textBoxCarton.Text = szData;
+                        // textBoxCarton.Text = szData;
                     }));
                 }
                 else if (szData.Length > 5 && szData.Contains("Noread"))
@@ -400,7 +668,7 @@ namespace NutricareQRcode
                         SQLConnection.InsertCarton(GetrDateTimeNow(), "9", curPackPerCarton, lineVolume, "1", temp, "10350", curCommodityID, curLocationID, curBatchID, curFillingLine);
                         SQLConnection.UPdateCartonRowOfPackTbl(curPackPerCarton, SQLConnection.GetCartonIDWithCode(temp), GetShortDateNow(), curBatchID);
                         UpDateCheckedPackDisplay(2);
-                        textBoxCarton.Text = szData;
+                        // textBoxCarton.Text = szData;
                     }));
                 }
 
@@ -415,56 +683,14 @@ namespace NutricareQRcode
             }
         }
 
-        private void StopPrintTIJ()
+        private string GetrDateTimeNow()
         {
-            try
-            {
-                byte[] data = MakeStopForm();
-                P.Write(data, 0, data.Length);
-            }
-            catch
-            {
-                MessageBox.Show("can not stop");
-            }
+            return DateTime.Now.ToString("yyyy-M-dd HH:mm:ss");
         }
 
-        private byte[] MakeStopForm()
+        private string GetShortDateNow()
         {
-            byte[] data = new byte[7];
-            data[0] = 0x1b;
-            data[1] = 0x02;
-            data[2] = 0x00;
-            data[3] = 0x12;
-            data[4] = 0x1b;
-            data[5] = 0x03;
-            data[6] = 0xb3;
-            return data;
-        }
-
-        private void StartPrintTIJ()
-        {
-            try
-            {
-                byte[] data = MakeStartForm();
-                P.Write(data, 0, data.Length);
-            }
-            catch
-            {
-                MessageBox.Show("can not stop");
-            }
-        }
-
-        private byte[] MakeStartForm()
-        {
-            byte[] data = new byte[7];
-            data[0] = 0x1b;
-            data[1] = 0x02;
-            data[2] = 0x00;
-            data[3] = 0x11;
-            data[4] = 0x1b;
-            data[5] = 0x03;
-            data[6] = 0xb4;
-            return data;
+            return DateTime.Now.ToString("yyyy-M-dd HH:mm:ss").Substring(0, 10);
         }
 
         public void waitForDataCartonCam()
@@ -487,7 +713,6 @@ namespace NutricareQRcode
                 }
             }
         }
-
         private void StopClientCartonCam()
         {
             if (clientCartoncam != null)
@@ -496,502 +721,104 @@ namespace NutricareQRcode
                 clientCartoncam = null;
             }
         }
-        /// <summary>
-        /// /////////////////////////////////////////////////////////////TIJ///////////////////////////////////////////////////////////////////////////
-        /// </summary>
-        private void TIJInit()
-        {
-            string[] ports = SerialPort.GetPortNames();
 
-            // Thêm toàn bộ các COM đã tìm được vào combox cbCom
-            comboBoxPort.Items.AddRange(ports); // Sử dụng AddRange thay vì dùng foreach
-            P.ReadTimeout = 1000;
+        // ĐÃ XÓA/SỬA CÁC HÀM CŨ: StopPrintTIJ, MakeStopForm, StartPrintTIJ, MakeStartForm, timerCheckProNum_Tick, labelProNum_TextChanged, ChangeThePrinterCode.
 
-            P.DataReceived += new SerialDataReceivedEventHandler(DataReceive);
-
-            // Cài đặt cho BaudRate
-            string[] BaudRate = { "1200", "2400", "4800", "9600", "19200", "38400", "57600", "115200" };
-            comboBoxBaud.Items.AddRange(BaudRate);
-
-            // Cài đặt cho DataBits
-            string[] Databits = { "6", "7", "8" };
-            comboBoxDataSize.Items.AddRange(Databits);
-
-            //Cho Parity
-            string[] Parity = { "None", "Odd", "Even" };
-            comboBoxParity.Items.AddRange(Parity);
-
-            //Cho Stop bit
-            string[] stopbit = { "1", "1.5", "2" };
-            comboBoxStopbit.Items.AddRange(stopbit);
-            if (!P.IsOpen)
-            {
-                P.Open();
-            }
-        }
-
-        private void comboBoxPort_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (P.IsOpen)
-            {
-                P.Close(); // Nếu đang mở Port thì phải đóng lại
-            }
-            P.PortName = comboBoxPort.SelectedItem.ToString(); // Gán PortName bằng COM đã chọn 
-        }
-
-        private void comboBoxBaud_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (P.IsOpen)
-            {
-                P.Close();
-            }
-            P.BaudRate = Convert.ToInt32(comboBoxBaud.Text);
-        }
-
-        private void comboBoxDataSize_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (P.IsOpen)
-            {
-                P.Close();
-            }
-            P.DataBits = Convert.ToInt32(comboBoxDataSize.Text);
-        }
-
-        private void comboBoxParity_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (P.IsOpen)
-            {
-                P.Close();
-            }
-            // Với thằng Parity hơn lằng nhằng. Nhưng cũng OK thôi. ^_^
-            switch (comboBoxParity.SelectedItem.ToString())
-            {
-                case "Odd":
-                    P.Parity = Parity.Odd;
-                    break;
-                case "None":
-                    P.Parity = Parity.None;
-                    break;
-                case "Even":
-                    P.Parity = Parity.Even;
-                    break;
-            }
-        }
-
-        private void comboBoxStopbit_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (P.IsOpen)
-            {
-                P.Close();
-            }
-            switch (comboBoxStopbit.SelectedItem.ToString())
-            {
-                case "1":
-                    P.StopBits = StopBits.One;
-                    break;
-                case "1.5":
-                    P.StopBits = StopBits.OnePointFive;
-                    break;
-
-                case "2":
-                    P.StopBits = StopBits.Two;
-                    break;
-            }
-        }
-
-        // Hàm này được sự kiện nhận dử liệu gọi đến. Mục đích để hiển thị thôi
-        private void DataReceive(object obj, SerialDataReceivedEventArgs e)
-        {
-            InputData = P.ReadExisting();
-            if (InputData != string.Empty)
-            {
-                //InputData = InputData.Substring(4, 1);
-
-                Console.WriteLine(InputData);
-                if (InputData.Contains("?") && !duplicatefault)
-                {
-                    try
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            // NẾU CARTON CAM BỊ TẮT, GIẢ LẬP ĐỌC MÃ VÀ AGGREGATION
-                            if (!cartonCamEnabled)
-                            {
-                                // printedCartonCode đang giữ mã vừa in xong
-                                SimulateCartonCamRead(printedCartonCode);
-                            }
-
-                            // Cập nhật trạng thái in cũ và lấy mã mới để in tiếp
-                            SQLConnection.TurnOnPrintedCartonCode(int.Parse(printedcartonCodeID), 1, GetrDateTimeNow());
-
-                            printedCartonCode = "http://nits.vn/" + SQLConnection.GetPrintedCartonCode();
-                            printedcartonCodeID = SQLConnection.GetCurCartonCodeID();
-                            TransferDataToTIJ(printedCartonCode);
-                            textBoxQRCodeTIJ.Text = printedCartonCode;
-                        }));
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Hết mã code thùng!");
-                    }
-                }
-            }
-        }
-
-        // Hàm mới: Giả lập việc Carton Camera đọc được mã và thực hiện liên kết
-        private void SimulateCartonCamRead(string cartonCode)
-        {
-            this.Invoke(new Action(() =>
-            {
-                // Logic tương tự onDataReceivedCartonCam (chỉ phần mã hợp lệ)
-                carNum++;
-                labelNumCarton.Text = (carNum).ToString();
-                PackCartonInfor();
-                // 1. Insert Carton
-                SQLConnection.InsertCarton(GetrDateTimeNow(), entryStatus, curPackPerCarton, lineVolume, "1", cartonCode, "10350", curCommodityID, curLocationID, curBatchID, curFillingLine);
-                // 2. Aggregate Packs
-                SQLConnection.UPdateCartonRowOfPackTbl(curPackPerCarton, SQLConnection.GetCartonIDWithCode(cartonCode), GetShortDateNow(), curBatchID);
-                UpDateCheckedPackDisplay(2);
-                textBoxCarton.Text = cartonCode;
-            }));
-        }
-
+        // Hàm này không còn liên quan đến luồng chính.
         private void button3_Click(object sender, EventArgs e)
         {
-            try
-            {
-                P.Open();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Không kết nối được.", "Thử lại", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            // Logic cũ đã bị xóa.
         }
 
         private void buttonDisconnectRs232_Click(object sender, EventArgs e)
         {
-            P.Close();
+            // Logic cũ đã bị xóa.
         }
 
-        public byte[] insert_qr_code(byte id, string chuoi, string chuoi2, string chuoi3)
+        // --- CÁC HÀM XỬ LÝ SỰ KIỆN GIAO DIỆN CHÍNH ---
+
+        private void btnConnect_Click(object sender, EventArgs e)
         {
-            //mã lệnh, num feild, feild id, num off mes, data
-            byte[] _string = Encoding.UTF8.GetBytes(chuoi);
-            byte[] _string2 = Encoding.UTF8.GetBytes(chuoi2);
-            byte[] _string3 = Encoding.UTF8.GetBytes(chuoi3);
-            byte[] data = new byte[chuoi.Length + 4 + chuoi2.Length + 2 + chuoi3.Length + 2];
-
-
-            data[0] = 0x1d; data[1] = 0x03; data[2] = 0x01; data[3] = (byte)chuoi.Length;
-            for (int i = 0; i < chuoi.Length; i++)
+            if (textBoxLotNum.Text.Length < 10)
             {
-                data[i + 4] = _string[i];
-
-            }
-
-            data[chuoi.Length - 1 + 4 + 1] = 0x02;
-            data[chuoi.Length + 5] = (byte)chuoi2.Length;
-            for (int i = chuoi.Length + 6; i < chuoi.Length + 4 + chuoi2.Length + 2; i++)
-            {
-                data[i] = _string2[i - chuoi.Length - 6];
-            }
-
-            data[chuoi.Length + 4 + chuoi2.Length + 2] = 0x03;
-            Console.WriteLine(data[chuoi.Length + 4 + chuoi2.Length + 2]);
-            data[chuoi.Length + 4 + chuoi2.Length + 2 + 1] = (byte)chuoi3.Length;
-            Console.WriteLine(data[chuoi.Length + 4 + chuoi2.Length + 2 + 1]);
-            for (int i = chuoi.Length + 4 + chuoi2.Length + 2 + 1 + 1; i < chuoi.Length + 4 + chuoi2.Length + 2 + 1 + 1 + chuoi3.Length; i++)
-            {
-                //Console.WriteLine("test: " + (i - (chuoi.Length + 4 + chuoi2.Length + 2 + 1 + 1)).ToString());
-                data[i] = _string3[i - (chuoi.Length + 4 + chuoi2.Length + 2 + 1 + 1)];
-                Console.WriteLine(data[i]);
-            }
-            byte[] new_data = data_cmd(id, data);
-            return new_data;
-        }
-
-
-
-        private byte[] data_cmd(int id, byte[] cmd)
-        {
-            byte[] data = new byte[6 + cmd.Length];
-            data[0] = ESC; data[1] = STX; data[2] = toID(id);
-            for (int i = 0; i < cmd.Length; i++)
-            {
-                data[i + 3] = cmd[i];
-            }
-            data[cmd.Length + 3] = ESC; data[cmd.Length + 4] = ETX; data[cmd.Length + 5] = getsum(data);
-            Console.WriteLine(data[cmd.Length + 3] + "," + data[cmd.Length + 4] + "," + data[cmd.Length + 5]);
-            return data;
-        }
-
-        private byte toID(int id)
-        {
-            return (byte)id;
-        }
-
-        byte getsum(byte[] data)
-        {
-            int sum = 0;
-            for (int i = 0; i < data.Length; i++)
-            {
-                sum = sum + data[i];
-            }
-
-            if (sum > 256)
-            {
-                int var = sum / 256;
-                int out_data = sum - (var * 256);
-                return (byte)(256 - out_data);
-            }
-            return (byte)(256 - sum);
-        }
-
-        private void TransferDataToTIJ(string strTransfer)
-        {
-            if (textBoxNSX.Text.Length == 10)
-            {
-                byte[] data = insert_qr_code(0, strTransfer, strTransfer.Substring(15, 12), textBoxNSX.Text + "-" + textBoxLotNum.Text.Substring(0, 9));
-                for (int i = 0; i < data.Length; i++)
-                {
-                    Console.Write(data[i] + ",");
-                }
-                P.Write(data, 0, data.Length);
-            }
-        }
-        ///
-        ////////////////////////////////////////////////////////Domino/////////////////////////////////////////////////////////
-        ///
-        private void DominoInit()
-        {
-            StartClient();
-            waitForData();
-        }
-        private void StartClient()
-        {
-            try
-            {
-                client = new Socket(System.Net.Sockets.AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                IPAddress ip = IPAddress.Parse(strDominoAdd);
-                int port = int.Parse(strDominoPort);
-                int iPortNo = System.Convert.ToInt16(port);
-                IPEndPoint ipEnd = new IPEndPoint(ip, iPortNo);
-                client.Connect(ipEnd);
-            }
-            catch (SocketException se)
-            {
-                MessageBox.Show(se.Message);
-            }
-        }
-
-        public class cSocketPacket
-        {
-            public System.Net.Sockets.Socket thisSocket;
-            public byte[] dataBuffer = new byte[96];
-        }
-
-        public void onDataReceived(IAsyncResult asyn)
-        {
-            try
-            {
-                cSocketPacket theSockID = (cSocketPacket)asyn.AsyncState;
-                int iRx = 0;
-                iRx = theSockID.thisSocket.EndReceive(asyn);
-                char[] chars = new char[iRx + 1];
-                System.Text.Decoder d = System.Text.Encoding.UTF8.GetDecoder();
-                int charLen = d.GetChars(theSockID.dataBuffer, 0, iRx, chars, 0);
-                System.String szData = new System.String(chars);
-
-                if (szData.Contains("T1"))
-                {
-                    this.Invoke(new Action(() =>
-                    {
-                        if (labelProNum.Text != szData.Substring(3, 10))
-                            labelProNum.Text = szData.Substring(3, 10);
-                    }));
-                }
-                if (client != null)
-                {
-                    waitForData();
-                }
-            }
-            catch (ObjectDisposedException)
-            {
-                MessageBox.Show("OnDataReceived: Socket has been closed");
-            }
-        }
-
-        public void waitForData()
-        {
-            if (client != null)
-            {
-                try
-                {
-                    if (pfnCallBack == null)
-                    {
-                        pfnCallBack = new AsyncCallback(onDataReceived);
-                    }
-                    cSocketPacket theSocPkt = new cSocketPacket();
-                    theSocPkt.thisSocket = client;
-                    m_asynResult = client.BeginReceive(theSocPkt.dataBuffer, 0, theSocPkt.dataBuffer.Length, SocketFlags.None, pfnCallBack, theSocPkt);
-                }
-                catch (SocketException se)
-                {
-                    MessageBox.Show(se.Message);
-                }
-            }
-        }
-        private void send(string data)
-        {
-            if (client != null)
-            {
-                try
-                {
-                    Object objDta = data;
-
-                    byte[] byData = System.Text.Encoding.ASCII.GetBytes(objDta.ToString());
-
-                    client.Send(byData);
-
-                }
-                catch (SocketException)
-                {
-                    MessageBox.Show("Loi Socket");
-                }
-            }
-        }
-        private void stopClient()
-        {
-            if (client != null)
-            {
-                client.Close();
-                client = null;
-            }
-        }
-
-        private void buttonConnect_Click(object sender, EventArgs e)
-        {
-            StartClient();
-        }
-
-        private void buttonDisconnect_Click(object sender, EventArgs e)
-        {
-            stopClient();
-        }
-
-        private void TransferDataToDonino(string dominoCode)
-        {
-            string dataQRCode = dominoCode;
-            string dataLotNum = textBoxLotNum.Text;
-            string NSX = textBoxNSX.Text;
-            string HSD = textBoxHSD.Text;
-
-            if (dataLotNum.Length == 14)
-            {
-                dataLotNum += "   ";
-            }
-            else if (dataLotNum.Length == 15)
-            {
-                dataLotNum += "  ";
-            }
-            else if (dataLotNum.Length == 16)
-            {
-                dataLotNum += " ";
-            }
-
-            //string data = dataQRCode + NSX + HSD + dataLotNum +dataQRCode.Substring(14,13);
-            string data = dataQRCode + NSX + HSD + dataLotNum;
-            int len = data.Length;
-            Console.WriteLine("QR: " + dataQRCode);
-            Console.WriteLine("NSX: " + NSX);
-            Console.WriteLine("Lot: " + dataLotNum);
-            Console.WriteLine("dong 4: " + dataQRCode.Substring(14, 13));
-            //
-            send((char)0x1B + "OE" + data.Length.ToString("0000") + data + (char)0x04);
-        }
-
-        private void buttonStart_Click(object sender, EventArgs e)
-        {
-            if (curFillingLine == "0")
+                MessageBox.Show("Kiểm tra lại số LOT!");
                 return;
-            TIJInit();
+            }
+
+            PackCartonInfor();
+
+            // KHỞI TẠO MÁY IN SERIAL BUFFER MỚI (FIXED: Đã thêm gọi hàm INIT)
+            PackPrinterInit();
+            CartonPrinterInit();
+
             GetFirstPrintedData();
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            send((char)0x1B + "T1?" + (char)0x04);
-        }
+            // ĐẨY DỮ LIỆU BAN ĐẦU VÀO BUFFER (FIXED: Đã thêm logic đẩy dữ liệu)
+            TransferDataToPrinter(packPrinterPort, printedPackcode, textBoxNSX.Text, textBoxHSD.Text, textBoxLotNum.Text);
+            TransferDataToPrinter(cartonPrinterPort, printedCartonCode, textBoxNSX.Text, textBoxHSD.Text, textBoxLotNum.Text);
 
-        private void timerCheckProNum_Tick(object sender, EventArgs e)
-        {
-            if (client != null)
+            UpDateCheckedPackDisplay(2);
+
+            if (packCamEnabled)
             {
-                send((char)0x1B + "T1?" + (char)0x04);
+                PackCamInit();
+            }
+            if (cartonCamEnabled)
+            {
+                CartonCamInit();
+            }
+
+            // KIỂM TRA TRẠNG THÁI KẾT NỐI MỚI (Đã loại bỏ kiểm tra P và client cũ)
+            bool printersConnected = packPrinterPort.IsOpen && cartonPrinterPort.IsOpen;
+            bool camerasReady = (clientPackcam != null || !packCamEnabled) && (clientCartoncam != null || !cartonCamEnabled);
+
+            if (printersConnected && camerasReady)
+            {
+                btnConnect.Enabled = false;
+                // buttonDisCon.Enabled = true;
             }
         }
 
-        private void labelProNum_TextChanged(object sender, EventArgs e)
+        private void button2_Click_2(object sender, EventArgs e) // Nút Disconnect (FIXED: Đã đóng cổng COM mới)
         {
-            if (duplicatefault)
+            if (packPrinterPort != null && packPrinterPort.IsOpen) packPrinterPort.Close();
+            if (cartonPrinterPort != null && cartonPrinterPort.IsOpen) cartonPrinterPort.Close();
+
+            StopClientCartonCam();
+            StopClientPackCam();
+
+            // SỬA LOGIC KIỂM TRA TRẠNG THÁI CUỐI CÙNG
+            if (!packPrinterPort.IsOpen && !cartonPrinterPort.IsOpen && clientPackcam == null && clientCartoncam == null)
             {
-                return;
-            }
-
-            // NẾU PACK CAM BỊ TẮT, GIẢ LẬP ĐỌC MÃ
-            if (!packCamEnabled)
-            {
-                SimulatePackCamRead(printedPackcode);
-            }
-
-            ChangeThePrinterCode();
-            ChangeThePrinterCode();
-        }
-
-        // Hàm mới: Giả lập việc Pack Camera đọc được mã
-        private void SimulatePackCamRead(string packCode)
-        {
-            this.Invoke(new Action(() =>
-            {
-                // Logic tương tự onDataReceivedPackCam
-                PackCartonInfor();
-                SQLConnection.InsertPack(GetrDateTimeNow(), curFillingLine, curBatchID, curLocationID, curQueueID, curCommodityID, packCode, lineVolume, entryStatus);
-                UpDateCheckedPackDisplay(1);
-                textBoxPack.Text = packCode;
-                canNum++;
-            }));
-        }
-
-        private void ChangeThePrinterCode()
-        {
-            try
-            {
-                SQLConnection.TurnOnPrintedPackCode(int.Parse(printedPackcodeID), 1, GetrDateTimeNow());
-
-                printedPackcode = "http://nits.vn/" + SQLConnection.GetPrintedPackCode();
-                printedPackcodeID = SQLConnection.GetCurPackCodeID();
-
-                SQLConnection.TurnOnPrintedPackCode(int.Parse(printedPackcodeID), 1, GetrDateTimeNow());
-                TransferDataToDonino(printedPackcode);
-                textBoxQRCodeDomino.Text = printedPackcode;
-            }
-            catch
-            {
-                MessageBox.Show("Kiem tra phan mem tao code in!");
+                btnConnect.Enabled = true;
+                buttonDisCon.Enabled = false;
             }
         }
 
-        private void buttonClearBuff_Click(object sender, EventArgs e)
+        private void buttonReset_Click(object sender, EventArgs e)
         {
-            //send((char)0x1B+"}J"+ "1"+ (char)0x04);
-            send((char)0x1B + "OE00002" + (char)0x04);
+            if (duplicatefaultCarton)
+            {
+                // Logic dừng in cũ đã bị loại bỏ, chỉ xóa cờ lỗi
+                duplicatefaultCarton = false;
+            }
+            else if (duplicatefault)
+            {
+                // Logic dừng in cũ đã bị loại bỏ, chỉ xóa cờ lỗi
+                duplicatefault = false;
+            }
+
+            // Gửi lại dữ liệu in ban đầu sau reset
+            GetFirstPrintedData(); // Lấy mã mới sau khi reset lỗi
+            TransferDataToPrinter(packPrinterPort, printedPackcode, textBoxNSX.Text, textBoxHSD.Text, textBoxLotNum.Text);
+            TransferDataToPrinter(cartonPrinterPort, printedCartonCode, textBoxNSX.Text, textBoxHSD.Text, textBoxLotNum.Text);
+
+            buttonReset.BackColor = Color.Green;
+            waitForDataPackCam();
+            waitForDataCartonCam();
         }
 
-        private void comboBoxFillingLine_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            curFillingLine = comboBoxFillingLine.SelectedItem.ToString();
-        }
-        //Simulation
+
 
         private void UpDateCheckedPackDisplay(int id)
         {
@@ -1037,38 +864,6 @@ namespace NutricareQRcode
             UpDateCheckedPackDisplay(1);
         }
 
-        private void btnConnect_Click(object sender, EventArgs e)
-        {
-            if (textBoxLotNum.Text.Length < 10)
-            {
-                MessageBox.Show("Kiểm tra lại số LOT!");
-                return;
-            }
-
-            PackCartonInfor();
-            TIJInit();
-            DominoInit();
-            GetFirstPrintedData();
-            UpDateCheckedPackDisplay(2);
-
-            // KẾT NỐI CÓ ĐIỀU KIỆN
-            if (packCamEnabled)
-            {
-                PackCamInit();
-            }
-            if (cartonCamEnabled)
-            {
-                CartonCamInit();
-            }
-
-            timerCheckDominostate.Enabled = true;
-
-            if (P.IsOpen && client != null && clientCartoncam != null && clientPackcam != null)
-            {
-                btnConnect.Enabled = false;
-                buttonDisCon.Enabled = true;
-            }
-        }
 
         private void textBoxNSX_TextChanged_1(object sender, EventArgs e)
         {
@@ -1101,19 +896,7 @@ namespace NutricareQRcode
             UpDateCheckedPackDisplay(1);
         }
 
-        private void button2_Click_2(object sender, EventArgs e)
-        {
-            P.Close();
-            stopClient();
-            StopClientCartonCam();
-            StopClientPackCam();
 
-            if (!P.IsOpen && client == null && clientCartoncam == null && clientPackcam == null)
-            {
-                btnConnect.Enabled = true;
-                buttonDisCon.Enabled = false;
-            }
-        }
 
         private void buttonDeleteCarton_Click_1(object sender, EventArgs e)
         {
@@ -1134,42 +917,10 @@ namespace NutricareQRcode
             UpDateCheckedPackDisplay(2);
         }
 
-        private void button2_Click_3(object sender, EventArgs e)
-        {
-            ChangeThePrinterCode();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            send((char)0x1B + "N1" + (char)0x04);
-        }
 
         private void timerCheckDominostate_Tick(object sender, EventArgs e)
         {
-            if (labelProNum.Text == "label")
-            {
-                MessageBox.Show("Reset connection cho máy in, rồi kết nối lại phần mềm!");
-            }
-            timerCheckDominostate.Enabled = false;
-        }
 
-        private void buttonReset_Click(object sender, EventArgs e)
-        {
-            if (duplicatefaultCarton)
-            {
-                StartPrintTIJ();
-                duplicatefaultCarton = false;
-            }
-            else if (duplicatefault)
-            {
-                send((char)0x1B + "Q1Y" + (char)0x04);
-                duplicatefault = false;
-            }
-
-            buttonReset.BackColor = Color.Green;
-            waitForDataPackCam();
-            waitForDataCartonCam();
-            GetFirstPrintedData();
         }
 
         private void dataGridViewFailCarton_CellClick_1(object sender, DataGridViewCellEventArgs e)
@@ -1206,6 +957,17 @@ namespace NutricareQRcode
                 return;
             }
             labelCellInfor.Text = dataGridViewCheckedPack.Rows[numrow].Cells[1].Value.ToString();
+        }
+
+        private void buttonDeleteAllCan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+
         }
     }
 }

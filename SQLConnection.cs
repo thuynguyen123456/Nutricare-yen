@@ -67,7 +67,6 @@ namespace NutricareQRcode
             }
         }
 
-
         public static DataTable GetDataTable(string strSQL)
         {
             try
