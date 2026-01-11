@@ -13,3 +13,4 @@ PackIP,192.168.0.1,0
 PackPort,23,
 CartonCam,192.168.0.2,0
 CartonPort,23,
+OnlyCarton,0

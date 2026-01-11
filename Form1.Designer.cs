@@ -63,6 +63,7 @@ namespace NutricareQRcode
             this.textBoxHSD = new System.Windows.Forms.TextBox();
             this.labelNSX = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.checkBox1Code = new System.Windows.Forms.CheckBox();
             this.buttonStopCmd = new System.Windows.Forms.Button();
             this.buttonReset = new System.Windows.Forms.Button();
             this.labelCellInfor = new System.Windows.Forms.Label();
@@ -95,7 +96,6 @@ namespace NutricareQRcode
             this.buttonFailCarton = new System.Windows.Forms.Button();
             this.buttonDeleteFailCartonAndCan = new System.Windows.Forms.Button();
             this.tabControlAuto = new System.Windows.Forms.TabControl();
-            this.checkBox1Code = new System.Windows.Forms.CheckBox();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -129,9 +129,9 @@ namespace NutricareQRcode
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(1916, 1028);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "MANUAL";
@@ -145,9 +145,9 @@ namespace NutricareQRcode
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.ForeColor = System.Drawing.Color.Black;
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(1916, 1028);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "AUTO";
@@ -167,11 +167,11 @@ namespace NutricareQRcode
             this.tableLayoutPanel1.Controls.Add(this.groupBox5, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1018F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1020F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1908, 1020);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
@@ -181,9 +181,9 @@ namespace NutricareQRcode
             this.groupBox7.Controls.Add(this.groupBox14);
             this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox7.Location = new System.Drawing.Point(385, 4);
-            this.groupBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox7.Size = new System.Drawing.Size(373, 1012);
             this.groupBox7.TabIndex = 3;
             this.groupBox7.TabStop = false;
@@ -193,9 +193,9 @@ namespace NutricareQRcode
             this.groupBox19.Controls.Add(this.dataGridViewPackWaitPack);
             this.groupBox19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox19.Location = new System.Drawing.Point(4, 25);
-            this.groupBox19.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox19.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox19.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox19.Size = new System.Drawing.Size(365, 917);
             this.groupBox19.TabIndex = 74;
             this.groupBox19.TabStop = false;
@@ -208,7 +208,7 @@ namespace NutricareQRcode
             this.dataGridViewTextBoxColumn1});
             this.dataGridViewPackWaitPack.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewPackWaitPack.Location = new System.Drawing.Point(4, 25);
-            this.dataGridViewPackWaitPack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewPackWaitPack.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewPackWaitPack.Name = "dataGridViewPackWaitPack";
             this.dataGridViewPackWaitPack.ReadOnly = true;
             this.dataGridViewPackWaitPack.RowHeadersWidth = 51;
@@ -238,9 +238,9 @@ namespace NutricareQRcode
             this.groupBox14.Controls.Add(this.buttonDeleteWaitingCan);
             this.groupBox14.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox14.Location = new System.Drawing.Point(4, 942);
-            this.groupBox14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox14.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox14.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox14.Size = new System.Drawing.Size(365, 66);
             this.groupBox14.TabIndex = 73;
             this.groupBox14.TabStop = false;
@@ -261,7 +261,7 @@ namespace NutricareQRcode
             this.buttonDeleteWaitingCan.BackColor = System.Drawing.Color.Gray;
             this.buttonDeleteWaitingCan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDeleteWaitingCan.Location = new System.Drawing.Point(229, 18);
-            this.buttonDeleteWaitingCan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDeleteWaitingCan.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDeleteWaitingCan.Name = "buttonDeleteWaitingCan";
             this.buttonDeleteWaitingCan.Size = new System.Drawing.Size(128, 41);
             this.buttonDeleteWaitingCan.TabIndex = 67;
@@ -276,9 +276,9 @@ namespace NutricareQRcode
             this.groupBox4.Controls.Add(this.groupBox9);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(1528, 4);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(376, 1012);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
@@ -297,9 +297,9 @@ namespace NutricareQRcode
             this.groupBox11.Controls.Add(this.label9);
             this.groupBox11.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox11.Location = new System.Drawing.Point(4, 564);
-            this.groupBox11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox11.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox11.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox11.Size = new System.Drawing.Size(368, 425);
             this.groupBox11.TabIndex = 70;
             this.groupBox11.TabStop = false;
@@ -425,9 +425,9 @@ namespace NutricareQRcode
             this.groupBox10.Controls.Add(this.labelNSX);
             this.groupBox10.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox10.Location = new System.Drawing.Point(4, 331);
-            this.groupBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox10.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox10.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox10.Size = new System.Drawing.Size(368, 233);
             this.groupBox10.TabIndex = 69;
             this.groupBox10.TabStop = false;
@@ -437,7 +437,7 @@ namespace NutricareQRcode
             // 
             this.textBoxNSX.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNSX.Location = new System.Drawing.Point(139, 50);
-            this.textBoxNSX.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNSX.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNSX.Name = "textBoxNSX";
             this.textBoxNSX.Size = new System.Drawing.Size(293, 30);
             this.textBoxNSX.TabIndex = 67;
@@ -447,7 +447,7 @@ namespace NutricareQRcode
             // 
             this.textBoxLotNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxLotNum.Location = new System.Drawing.Point(139, 155);
-            this.textBoxLotNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxLotNum.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxLotNum.Name = "textBoxLotNum";
             this.textBoxLotNum.Size = new System.Drawing.Size(293, 30);
             this.textBoxLotNum.TabIndex = 68;
@@ -479,7 +479,7 @@ namespace NutricareQRcode
             this.textBoxHSD.Enabled = false;
             this.textBoxHSD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxHSD.Location = new System.Drawing.Point(139, 105);
-            this.textBoxHSD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxHSD.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxHSD.Name = "textBoxHSD";
             this.textBoxHSD.Size = new System.Drawing.Size(293, 30);
             this.textBoxHSD.TabIndex = 66;
@@ -505,19 +505,31 @@ namespace NutricareQRcode
             this.groupBox9.Controls.Add(this.btnConnect);
             this.groupBox9.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox9.Location = new System.Drawing.Point(4, 25);
-            this.groupBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox9.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox9.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox9.Size = new System.Drawing.Size(368, 306);
             this.groupBox9.TabIndex = 62;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Control";
             // 
+            // checkBox1Code
+            // 
+            this.checkBox1Code.AutoSize = true;
+            this.checkBox1Code.Checked = true;
+            this.checkBox1Code.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1Code.Location = new System.Drawing.Point(16, 211);
+            this.checkBox1Code.Name = "checkBox1Code";
+            this.checkBox1Code.Size = new System.Drawing.Size(171, 28);
+            this.checkBox1Code.TabIndex = 67;
+            this.checkBox1Code.Text = "Chế độ 1 code";
+            this.checkBox1Code.UseVisualStyleBackColor = true;
+            // 
             // buttonStopCmd
             // 
             this.buttonStopCmd.BackColor = System.Drawing.Color.Gray;
             this.buttonStopCmd.Location = new System.Drawing.Point(213, 124);
-            this.buttonStopCmd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonStopCmd.Margin = new System.Windows.Forms.Padding(4);
             this.buttonStopCmd.Name = "buttonStopCmd";
             this.buttonStopCmd.Size = new System.Drawing.Size(184, 65);
             this.buttonStopCmd.TabIndex = 66;
@@ -528,7 +540,7 @@ namespace NutricareQRcode
             // 
             this.buttonReset.BackColor = System.Drawing.Color.LimeGreen;
             this.buttonReset.Location = new System.Drawing.Point(15, 124);
-            this.buttonReset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonReset.Margin = new System.Windows.Forms.Padding(4);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(184, 65);
             this.buttonReset.TabIndex = 65;
@@ -551,7 +563,7 @@ namespace NutricareQRcode
             // 
             this.buttonDisCon.BackColor = System.Drawing.Color.Gray;
             this.buttonDisCon.Location = new System.Drawing.Point(213, 39);
-            this.buttonDisCon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDisCon.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDisCon.Name = "buttonDisCon";
             this.buttonDisCon.Size = new System.Drawing.Size(184, 65);
             this.buttonDisCon.TabIndex = 62;
@@ -563,7 +575,7 @@ namespace NutricareQRcode
             // 
             this.btnConnect.BackColor = System.Drawing.Color.Gray;
             this.btnConnect.Location = new System.Drawing.Point(16, 39);
-            this.btnConnect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(4);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(184, 65);
             this.btnConnect.TabIndex = 61;
@@ -577,9 +589,9 @@ namespace NutricareQRcode
             this.groupBox6.Controls.Add(this.groupBox12);
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox6.Location = new System.Drawing.Point(1147, 4);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox6.Size = new System.Drawing.Size(373, 1012);
             this.groupBox6.TabIndex = 2;
             this.groupBox6.TabStop = false;
@@ -606,7 +618,7 @@ namespace NutricareQRcode
             this.dataGridViewTextBoxColumn2});
             this.dataGridViewCheckedCarton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewCheckedCarton.Location = new System.Drawing.Point(0, 21);
-            this.dataGridViewCheckedCarton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewCheckedCarton.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewCheckedCarton.Name = "dataGridViewCheckedCarton";
             this.dataGridViewCheckedCarton.ReadOnly = true;
             this.dataGridViewCheckedCarton.RowHeadersWidth = 51;
@@ -639,9 +651,9 @@ namespace NutricareQRcode
             this.groupBox12.Controls.Add(this.buttonDeleteCarton);
             this.groupBox12.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox12.Location = new System.Drawing.Point(4, 942);
-            this.groupBox12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox12.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox12.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox12.Size = new System.Drawing.Size(365, 66);
             this.groupBox12.TabIndex = 74;
             this.groupBox12.TabStop = false;
@@ -662,7 +674,7 @@ namespace NutricareQRcode
             this.buttonDeleteCarton.BackColor = System.Drawing.Color.Gray;
             this.buttonDeleteCarton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDeleteCarton.Location = new System.Drawing.Point(229, 18);
-            this.buttonDeleteCarton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDeleteCarton.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDeleteCarton.Name = "buttonDeleteCarton";
             this.buttonDeleteCarton.Size = new System.Drawing.Size(128, 41);
             this.buttonDeleteCarton.TabIndex = 67;
@@ -676,9 +688,9 @@ namespace NutricareQRcode
             this.groupBox8.Controls.Add(this.groupBox13);
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox8.Location = new System.Drawing.Point(4, 4);
-            this.groupBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox8.Size = new System.Drawing.Size(373, 1012);
             this.groupBox8.TabIndex = 4;
             this.groupBox8.TabStop = false;
@@ -688,9 +700,9 @@ namespace NutricareQRcode
             this.groupBox20.Controls.Add(this.dataGridViewCheckedPack);
             this.groupBox20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox20.Location = new System.Drawing.Point(4, 25);
-            this.groupBox20.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox20.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox20.Name = "groupBox20";
-            this.groupBox20.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox20.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox20.Size = new System.Drawing.Size(365, 917);
             this.groupBox20.TabIndex = 73;
             this.groupBox20.TabStop = false;
@@ -703,7 +715,7 @@ namespace NutricareQRcode
             this.Code});
             this.dataGridViewCheckedPack.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewCheckedPack.Location = new System.Drawing.Point(4, 25);
-            this.dataGridViewCheckedPack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewCheckedPack.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewCheckedPack.Name = "dataGridViewCheckedPack";
             this.dataGridViewCheckedPack.ReadOnly = true;
             this.dataGridViewCheckedPack.RowHeadersWidth = 51;
@@ -735,9 +747,9 @@ namespace NutricareQRcode
             this.groupBox13.Controls.Add(this.buttonDeleteAllCan);
             this.groupBox13.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox13.Location = new System.Drawing.Point(4, 942);
-            this.groupBox13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox13.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox13.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox13.Size = new System.Drawing.Size(365, 66);
             this.groupBox13.TabIndex = 72;
             this.groupBox13.TabStop = false;
@@ -758,7 +770,7 @@ namespace NutricareQRcode
             this.buttonDeletecan.BackColor = System.Drawing.Color.Gray;
             this.buttonDeletecan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDeletecan.Location = new System.Drawing.Point(97, 18);
-            this.buttonDeletecan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDeletecan.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDeletecan.Name = "buttonDeletecan";
             this.buttonDeletecan.Size = new System.Drawing.Size(128, 41);
             this.buttonDeletecan.TabIndex = 67;
@@ -772,7 +784,7 @@ namespace NutricareQRcode
             this.buttonDeleteAllCan.BackColor = System.Drawing.Color.Gray;
             this.buttonDeleteAllCan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDeleteAllCan.Location = new System.Drawing.Point(233, 18);
-            this.buttonDeleteAllCan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDeleteAllCan.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDeleteAllCan.Name = "buttonDeleteAllCan";
             this.buttonDeleteAllCan.Size = new System.Drawing.Size(128, 41);
             this.buttonDeleteAllCan.TabIndex = 66;
@@ -786,9 +798,9 @@ namespace NutricareQRcode
             this.groupBox5.Controls.Add(this.groupBox15);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(766, 4);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox5.Size = new System.Drawing.Size(373, 1012);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
@@ -798,9 +810,9 @@ namespace NutricareQRcode
             this.groupBox18.Controls.Add(this.dataGridViewFailCarton);
             this.groupBox18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox18.Location = new System.Drawing.Point(4, 25);
-            this.groupBox18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox18.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox18.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox18.Size = new System.Drawing.Size(365, 917);
             this.groupBox18.TabIndex = 74;
             this.groupBox18.TabStop = false;
@@ -814,7 +826,7 @@ namespace NutricareQRcode
             this.dataGridViewFailCarton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewFailCarton.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dataGridViewFailCarton.Location = new System.Drawing.Point(4, 25);
-            this.dataGridViewFailCarton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewFailCarton.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewFailCarton.Name = "dataGridViewFailCarton";
             this.dataGridViewFailCarton.ReadOnly = true;
             this.dataGridViewFailCarton.RowHeadersWidth = 51;
@@ -846,9 +858,9 @@ namespace NutricareQRcode
             this.groupBox15.Controls.Add(this.buttonDeleteFailCartonAndCan);
             this.groupBox15.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox15.Location = new System.Drawing.Point(4, 942);
-            this.groupBox15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox15.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox15.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox15.Size = new System.Drawing.Size(365, 66);
             this.groupBox15.TabIndex = 73;
             this.groupBox15.TabStop = false;
@@ -869,7 +881,7 @@ namespace NutricareQRcode
             this.buttonFailCarton.BackColor = System.Drawing.Color.Gray;
             this.buttonFailCarton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFailCarton.Location = new System.Drawing.Point(97, 18);
-            this.buttonFailCarton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonFailCarton.Margin = new System.Windows.Forms.Padding(4);
             this.buttonFailCarton.Name = "buttonFailCarton";
             this.buttonFailCarton.Size = new System.Drawing.Size(128, 41);
             this.buttonFailCarton.TabIndex = 67;
@@ -883,7 +895,7 @@ namespace NutricareQRcode
             this.buttonDeleteFailCartonAndCan.BackColor = System.Drawing.Color.Gray;
             this.buttonDeleteFailCartonAndCan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDeleteFailCartonAndCan.Location = new System.Drawing.Point(233, 18);
-            this.buttonDeleteFailCartonAndCan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDeleteFailCartonAndCan.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDeleteFailCartonAndCan.Name = "buttonDeleteFailCartonAndCan";
             this.buttonDeleteFailCartonAndCan.Size = new System.Drawing.Size(128, 41);
             this.buttonDeleteFailCartonAndCan.TabIndex = 66;
@@ -898,23 +910,11 @@ namespace NutricareQRcode
             this.tabControlAuto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlAuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlAuto.Location = new System.Drawing.Point(0, 0);
-            this.tabControlAuto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControlAuto.Margin = new System.Windows.Forms.Padding(4);
             this.tabControlAuto.Name = "tabControlAuto";
             this.tabControlAuto.SelectedIndex = 0;
             this.tabControlAuto.Size = new System.Drawing.Size(1924, 1061);
             this.tabControlAuto.TabIndex = 47;
-            // 
-            // checkBox1Code
-            // 
-            this.checkBox1Code.AutoSize = true;
-            this.checkBox1Code.Checked = true;
-            this.checkBox1Code.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1Code.Location = new System.Drawing.Point(16, 211);
-            this.checkBox1Code.Name = "checkBox1Code";
-            this.checkBox1Code.Size = new System.Drawing.Size(171, 28);
-            this.checkBox1Code.TabIndex = 67;
-            this.checkBox1Code.Text = "Chế độ 1 code";
-            this.checkBox1Code.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -925,11 +925,12 @@ namespace NutricareQRcode
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1924, 1061);
             this.Controls.Add(this.tabControlAuto);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

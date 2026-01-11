@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Globalization;
+using System.IO.Ports;
 using System.Linq;
-using System.Text;
-using System.Net.Sockets;
 using System.Net;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO.Ports;
-using System.Data.SqlClient;
-using System.Globalization;
-using System.Threading;
 
 namespace NutricareQRcode
 {
@@ -20,6 +21,8 @@ namespace NutricareQRcode
     {
         public static int canNum = 0;
         public static int carNum = 0;
+
+        private bool onlyCarton;
 
         // --- MÁY IN SERIAL BUFFER MỚI ---
         public SerialPort packPrinterPort;
@@ -80,6 +83,9 @@ namespace NutricareQRcode
         private string strCartonCamIP;
         private string strCartonCamPort;
 
+        private int packCodeCount;
+        private int cartonCodeCount;
+
         // ĐÃ XÓA: SerialPort P, InputData, client, pfnCallBack, strDominoAdd, strDominoPort, m_asynResult
 
         public Form1()
@@ -110,6 +116,9 @@ namespace NutricareQRcode
                 strCartonPrinterBaud = lines[7].Split(',')[1];
 
                 // 8, 9, 10: DataBits, Parity, StopBits
+                cartonPrinterPort.PortName = strCartonPrinterPortName;
+                cartonPrinterPort.BaudRate = Convert.ToInt32(strCartonPrinterBaud);
+
                 cartonPrinterPort.DataBits = Convert.ToInt32(lines[8].Split(',')[1]);
                 switch (lines[9].Split(',')[1])
                 {
@@ -123,6 +132,9 @@ namespace NutricareQRcode
                     case "1.5": cartonPrinterPort.StopBits = StopBits.OnePointFive; break;
                     case "2": cartonPrinterPort.StopBits = StopBits.Two; break;
                 }
+
+                packPrinterPort.PortName = strPackPrinterPortName;
+                packPrinterPort.BaudRate = Convert.ToInt32(strPackPrinterBaud);
 
                 packPrinterPort.DataBits = cartonPrinterPort.DataBits;
                 packPrinterPort.Parity = cartonPrinterPort.Parity;
@@ -152,6 +164,16 @@ namespace NutricareQRcode
                 {
                     cartonCamEnabled = true;
                 }
+
+                string[] onlyCartonModeStr = lines[15].Split(',');
+                if (onlyCartonModeStr[1] == "1")
+                {
+                    onlyCarton = true;
+                }
+                else
+                {
+                    onlyCarton = false;
+                }
             }
         }
 
@@ -176,6 +198,8 @@ namespace NutricareQRcode
             SQLConnection.sqlDatabase = strDatabase;
             SQLConnection.sqlUser = strUsername;
             SQLConnection.sqlPass = strPassDB;
+            packCodeCount = 0;
+            cartonCodeCount = 0;
 
             Console.WriteLine("Program init: ");
         }
@@ -277,8 +301,6 @@ namespace NutricareQRcode
             }
         }
 
-
-
         private void InitNewPrinter(SerialPort printer, string portName, string baudRateStr, SerialDataReceivedEventHandler handler)
         {
             try
@@ -344,7 +366,8 @@ namespace NutricareQRcode
                         packReceivedBuffer[i + 3] == PRINTER_RESPONSE_OK_END)
                     {
                         // Tìm thấy Trigger OK
-                        this.Invoke(new Action(() => {
+                        this.Invoke(new Action(() =>
+                        {
                             HandlePackPrintSuccess();
                         }));
 
@@ -370,7 +393,8 @@ namespace NutricareQRcode
                         cartonReceivedBuffer[i + 2] == 0x4B &&
                         cartonReceivedBuffer[i + 3] == PRINTER_RESPONSE_OK_END)
                     {
-                        this.Invoke(new Action(() => {
+                        this.Invoke(new Action(() =>
+                        {
                             HandleCartonPrintSuccess();
                         }));
 
@@ -388,11 +412,17 @@ namespace NutricareQRcode
         private void HandlePackPrintSuccess()
         {
             if (duplicatefault) return;
-
+            packCodeCount++;
             // 1. Aggregation (Chỉ xảy ra khi camera TẮT -> Simulation Mode)
             if (!packCamEnabled)
             {
-                SimulatePackCamRead(printedPackcode);
+                //if (checkBox1Code.Checked == false || (checkBox1Code.Checked == true && packCodeCount == 0))
+                //{
+                if (int.Parse(SQLConnection.CountPackCode(printedPackcode)) <= 0)
+                {
+                    SimulatePackCamRead(printedPackcode);
+                    //}
+                }
             }
 
             try
@@ -424,20 +454,17 @@ namespace NutricareQRcode
         private void HandleCartonPrintSuccess()
         {
             if (duplicatefaultCarton) return;
-
+            cartonCodeCount++;
             // 1. Aggregation (Chỉ xảy ra khi camera TẮT -> Simulation Mode)
             if (!cartonCamEnabled)
             {
-                try
+                //if (checkBox1Code.Checked == false || (checkBox1Code.Checked == true && cartonCodeCount == 0))
+                //{
+                if (int.Parse(SQLConnection.CountCartonCode(printedCartonCode)) <= 0)
                 {
-                    string currentPrintedCartonCode = printedCartonCode;
-                    SimulateCartonCamRead(currentPrintedCartonCode);
+                    SimulateCartonCamRead(printedCartonCode);
                 }
-                catch
-                {
-                    MessageBox.Show("Lỗi mô phỏng quét mã Carton!");
-                    return;
-                }
+                //}
             }
 
             try
@@ -476,7 +503,6 @@ namespace NutricareQRcode
                 PackCartonInfor();
                 SQLConnection.InsertPack(GetrDateTimeNow(), curFillingLine, curBatchID, curLocationID, curQueueID, curCommodityID, packCode, lineVolume, entryStatus);
                 UpDateCheckedPackDisplay(1);
-                // textBoxPack.Text = packCode;
                 canNum++;
             }));
         }
@@ -748,8 +774,17 @@ namespace NutricareQRcode
             PackCartonInfor();
 
             // KHỞI TẠO MÁY IN SERIAL BUFFER MỚI (FIXED: Đã thêm gọi hàm INIT)
-            PackPrinterInit();
-            CartonPrinterInit();
+
+
+            if (onlyCarton == false)
+            {
+                PackPrinterInit();
+                CartonPrinterInit();
+            }
+            else
+            {
+                CartonPrinterInit();
+            }
 
             GetFirstPrintedData();
 
@@ -781,6 +816,12 @@ namespace NutricareQRcode
 
         private void button2_Click_2(object sender, EventArgs e) // Nút Disconnect (FIXED: Đã đóng cổng COM mới)
         {
+            cartonCodeCount = 0;
+            packCodeCount = 0;
+
+            SQLConnection.TurnOnPrintedPackCode(int.Parse(printedPackcodeID), 1, GetrDateTimeNow());
+            SQLConnection.TurnOnPrintedCartonCode(int.Parse(printedcartonCodeID), 1, GetrDateTimeNow());
+
             if (packPrinterPort != null && packPrinterPort.IsOpen) packPrinterPort.Close();
             if (cartonPrinterPort != null && cartonPrinterPort.IsOpen) cartonPrinterPort.Close();
 
@@ -968,6 +1009,14 @@ namespace NutricareQRcode
         {
 
 
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            cartonCodeCount = 0;
+            packCodeCount = 0;
+            SQLConnection.TurnOnPrintedPackCode(int.Parse(printedPackcodeID), 1, GetrDateTimeNow());
+            SQLConnection.TurnOnPrintedCartonCode(int.Parse(printedcartonCodeID), 1, GetrDateTimeNow());
         }
     }
 }
