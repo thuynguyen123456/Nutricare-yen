@@ -91,8 +91,13 @@ namespace NutricareQRcode
         public Form1()
         {
             InitializeComponent();
+
+
             packPrinterPort = new SerialPort();
+
             cartonPrinterPort = new SerialPort();
+
+            LoadSettingFile();
             ProgramInit();
         }
 
@@ -192,7 +197,7 @@ namespace NutricareQRcode
 
         private void ProgramInit()
         {
-            LoadSettingFile();
+
             SetDateTime();
             SQLConnection.sqlServer = strServer;
             SQLConnection.sqlDatabase = strDatabase;
@@ -789,7 +794,10 @@ namespace NutricareQRcode
             GetFirstPrintedData();
 
             // ĐẨY DỮ LIỆU BAN ĐẦU VÀO BUFFER (FIXED: Đã thêm logic đẩy dữ liệu)
-            TransferDataToPrinter(packPrinterPort, printedPackcode, textBoxNSX.Text, textBoxHSD.Text, textBoxLotNum.Text);
+            if (onlyCarton == false)
+            {
+                TransferDataToPrinter(packPrinterPort, printedPackcode, textBoxNSX.Text, textBoxHSD.Text, textBoxLotNum.Text);
+            }
             TransferDataToPrinter(cartonPrinterPort, printedCartonCode, textBoxNSX.Text, textBoxHSD.Text, textBoxLotNum.Text);
 
             UpDateCheckedPackDisplay(2);
@@ -810,7 +818,6 @@ namespace NutricareQRcode
             if (printersConnected && camerasReady)
             {
                 btnConnect.Enabled = false;
-                // buttonDisCon.Enabled = true;
             }
         }
 
@@ -1015,8 +1022,25 @@ namespace NutricareQRcode
         {
             cartonCodeCount = 0;
             packCodeCount = 0;
-            SQLConnection.TurnOnPrintedPackCode(int.Parse(printedPackcodeID), 1, GetrDateTimeNow());
-            SQLConnection.TurnOnPrintedCartonCode(int.Parse(printedcartonCodeID), 1, GetrDateTimeNow());
+
+            try
+            {
+                if (!string.IsNullOrEmpty(printedPackcodeID))
+                {
+                    SQLConnection.TurnOnPrintedPackCode(
+                        int.Parse(printedPackcodeID), 1, GetrDateTimeNow());
+                }
+
+                if (!string.IsNullOrEmpty(printedcartonCodeID))
+                {
+                    SQLConnection.TurnOnPrintedCartonCode(
+                        int.Parse(printedcartonCodeID), 1, GetrDateTimeNow());
+                }
+            }
+            catch
+            {
+                // Khi đóng app: NUỐT LỖI, KHÔNG SHOW MESSAGEBOX
+            }
         }
     }
 }

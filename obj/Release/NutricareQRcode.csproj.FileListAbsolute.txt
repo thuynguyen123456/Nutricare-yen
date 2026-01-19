@@ -18,3 +18,13 @@ C:\Users\THUY\OneDrive\ThuyProject\Nutricare-yen\obj\Release\NutricareQRcode.csp
 C:\Users\THUY\OneDrive\ThuyProject\Nutricare-yen\obj\Release\NutricareQRcode.csproj.CoreCompileInputs.cache
 C:\Users\THUY\OneDrive\ThuyProject\Nutricare-yen\obj\Release\NutricareQRcode.exe
 C:\Users\THUY\OneDrive\ThuyProject\Nutricare-yen\obj\Release\NutricareQRcode.pdb
+C:\Users\T14\Project\Thuy Project\Nutricare-yen\bin\Release\NutricareQRcode.exe.config
+C:\Users\T14\Project\Thuy Project\Nutricare-yen\bin\Release\NutricareQRcode.exe
+C:\Users\T14\Project\Thuy Project\Nutricare-yen\bin\Release\NutricareQRcode.pdb
+C:\Users\T14\Project\Thuy Project\Nutricare-yen\obj\Release\NutricareQRcode.csproj.AssemblyReference.cache
+C:\Users\T14\Project\Thuy Project\Nutricare-yen\obj\Release\NutricareQRcode.Form1.resources
+C:\Users\T14\Project\Thuy Project\Nutricare-yen\obj\Release\NutricareQRcode.Properties.Resources.resources
+C:\Users\T14\Project\Thuy Project\Nutricare-yen\obj\Release\NutricareQRcode.csproj.GenerateResource.cache
+C:\Users\T14\Project\Thuy Project\Nutricare-yen\obj\Release\NutricareQRcode.csproj.CoreCompileInputs.cache
+C:\Users\T14\Project\Thuy Project\Nutricare-yen\obj\Release\NutricareQRcode.exe
+C:\Users\T14\Project\Thuy Project\Nutricare-yen\obj\Release\NutricareQRcode.pdb
